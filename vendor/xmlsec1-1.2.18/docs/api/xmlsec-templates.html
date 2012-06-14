@@ -1,0 +1,1290 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>templates</title>
+<meta name="GENERATOR" content="Modular DocBook HTML Stylesheet Version 1.79">
+<link rel="HOME" title="XML Security Library Reference Manual" href="index.html">
+<link rel="UP" title="XML Security Core Library API Reference." href="xmlsec-ref.html">
+<link rel="PREVIOUS" title="parser" href="xmlsec-parser.html">
+<link rel="NEXT" title="transforms" href="xmlsec-transforms.html">
+<style type="text/css">.synopsis, .classsynopsis {
+    background: #eeeeee;
+    border: solid 1px #aaaaaa;
+    padding: 0.5em;
+}
+.programlisting {
+    background: #eeeeff;
+    border: solid 1px #aaaaff;
+    padding: 0.5em;
+}
+.variablelist {
+    padding: 4px;
+    margin-left: 3em;
+}
+.navigation {
+    background: #ffeeee;
+    border: solid 1px #ffaaaa;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+.navigation a {
+    color: #770000;
+}
+.navigation a:visited {
+    color: #550000;
+}
+.navigation .title {
+    font-size: 200%;
+}</style>
+</head>
+<body><table witdh="100%" valign="top"><tr valign="top">
+<td valign="top" align="left" width="210">
+<img src="../images/logo.gif" alt="XML Security Library" border="0"><p></p>
+<ul>
+<li><a href="../index.html">Home</a></li>
+<li><a href="../download.html">Download</a></li>
+<li><a href="../news.html">News</a></li>
+<li><a href="../documentation.html">Documentation</a></li>
+<ul>
+<li><a href="../faq.html">FAQ</a></li>
+<li><a href="../api/xmlsec-notes.html">Tutorial</a></li>
+<li><a href="../api/xmlsec-reference.html">API reference</a></li>
+<li><a href="../api/xmlsec-examples.html">Examples</a></li>
+</ul>
+<li><a href="../xmldsig.html">XML Digital Signature</a></li>
+<ul><li><a href="http://www.aleksey.com/xmlsec/xmldsig-verifier.html">Online Verifier</a></li></ul>
+<li><a href="../xmlenc.html">XML Encryption</a></li>
+<li><a href="../c14n.html">XML Canonicalization</a></li>
+<li><a href="../bugs.html">Reporting Bugs</a></li>
+<li><a href="http://www.aleksey.com/pipermail/xmlsec">Mailing list</a></li>
+<li><a href="../related.html">Related</a></li>
+<li><a href="../authors.html">Authors</a></li>
+</ul>
+<table width="100%">
+<tr>
+<td width="15"></td>
+<td><a href="http://xmlsoft.org/"><img src="../images/libxml2-logo.png" alt="LibXML2" border="0"></a></td>
+</tr>
+<tr>
+<td width="15"></td>
+<td><a href="http://xmlsoft.org/XSLT"><img src="../images/libxslt-logo.png" alt="LibXSLT" border="0"></a></td>
+</tr>
+<tr>
+<td width="15"></td>
+<td><a href="http://www.openssl.org/"><img src="../images/openssl-logo.png" alt="OpenSSL" border="0"></a></td>
+</tr>
+<!--Links - start--><!--Links - end-->
+</table>
+</td>
+<td valign="top"><table width="100%" valign="top"><tr><td valign="top" align="left" id="xmlsecContent">
+<table width="100%" class="navigation" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="xmlsec-parser.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="xmlsec-ref.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">XML Security Library Reference Manual</th>
+<td><a accesskey="n" href="xmlsec-transforms.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<h1>
+<a name="XMLSEC-TEMPLATES"></a>templates</h1>
+<div class="REFNAMEDIV">
+<a name="AEN14788"></a><h2>Name</h2>templates -- Dynamic templates creation functions.</div>
+<div class="REFSYNOPSISDIV">
+<a name="XMLSEC-TEMPLATES.SYNOPSIS"></a><h2>Synopsis</h2>
+<pre class="SYNOPSIS"><gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLSIGNATURECREATE">xmlSecTmplSignatureCreate</a>           (<code class="PARAMETER"><gtkdoclink href="XMLDOC"><span class="TYPE">xmlDocPtr</span></gtkdoclink> doc</code>,
+                                                         <code class="PARAMETER"><gtkdoclink href="XMLSECTRANSFORMID"><span class="TYPE">xmlSecTransformId</span></gtkdoclink> c14nMethodId</code>,
+                                                         <code class="PARAMETER"><gtkdoclink href="XMLSECTRANSFORMID"><span class="TYPE">xmlSecTransformId</span></gtkdoclink> signMethodId</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *id</code>);
+<gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLSIGNATURECREATENSPREF">xmlSecTmplSignatureCreateNsPref</a>     (<code class="PARAMETER"><gtkdoclink href="XMLDOC"><span class="TYPE">xmlDocPtr</span></gtkdoclink> doc</code>,
+                                                         <code class="PARAMETER"><gtkdoclink href="XMLSECTRANSFORMID"><span class="TYPE">xmlSecTransformId</span></gtkdoclink> c14nMethodId</code>,
+                                                         <code class="PARAMETER"><gtkdoclink href="XMLSECTRANSFORMID"><span class="TYPE">xmlSecTransformId</span></gtkdoclink> signMethodId</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *id</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *nsPrefix</code>);
+<gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLSIGNATUREENSUREKEYINFO">xmlSecTmplSignatureEnsureKeyInfo</a>    (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> signNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *id</code>);
+<gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLSIGNATUREADDREFERENCE">xmlSecTmplSignatureAddReference</a>     (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> signNode</code>,
+                                                         <code class="PARAMETER"><gtkdoclink href="XMLSECTRANSFORMID"><span class="TYPE">xmlSecTransformId</span></gtkdoclink> digestMethodId</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *id</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *uri</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *type</code>);
+<gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLSIGNATUREADDOBJECT">xmlSecTmplSignatureAddObject</a>        (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> signNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *id</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *mimeType</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *encoding</code>);
+<gtkdoclink href="XMLNODE"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLSIGNATUREGETSIGNMETHODNODE">xmlSecTmplSignatureGetSignMethodNode</a>
+                                                        (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> signNode</code>);
+<gtkdoclink href="XMLNODE"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLSIGNATUREGETC14NMETHODNODE">xmlSecTmplSignatureGetC14NMethodNode</a>
+                                                        (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> signNode</code>);
+<gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLREFERENCEADDTRANSFORM">xmlSecTmplReferenceAddTransform</a>     (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> referenceNode</code>,
+                                                         <code class="PARAMETER"><gtkdoclink href="XMLSECTRANSFORMID"><span class="TYPE">xmlSecTransformId</span></gtkdoclink> transformId</code>);
+<gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLOBJECTADDSIGNPROPERTIES">xmlSecTmplObjectAddSignProperties</a>   (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> objectNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *id</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *target</code>);
+<gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLOBJECTADDMANIFEST">xmlSecTmplObjectAddManifest</a>         (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> objectNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *id</code>);
+<gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLMANIFESTADDREFERENCE">xmlSecTmplManifestAddReference</a>      (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> manifestNode</code>,
+                                                         <code class="PARAMETER"><gtkdoclink href="XMLSECTRANSFORMID"><span class="TYPE">xmlSecTransformId</span></gtkdoclink> digestMethodId</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *id</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *uri</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *type</code>);
+<gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLENCDATACREATE">xmlSecTmplEncDataCreate</a>             (<code class="PARAMETER"><gtkdoclink href="XMLDOC"><span class="TYPE">xmlDocPtr</span></gtkdoclink> doc</code>,
+                                                         <code class="PARAMETER"><gtkdoclink href="XMLSECTRANSFORMID"><span class="TYPE">xmlSecTransformId</span></gtkdoclink> encMethodId</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *id</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *type</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *mimeType</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *encoding</code>);
+<gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLENCDATAENSUREKEYINFO">xmlSecTmplEncDataEnsureKeyInfo</a>      (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> encNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *id</code>);
+<gtkdoclink href="XMLNODE"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLENCDATAENSUREENCPROPERTIES">xmlSecTmplEncDataEnsureEncProperties</a>
+                                                        (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> encNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *id</code>);
+<gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLENCDATAADDENCPROPERTY">xmlSecTmplEncDataAddEncProperty</a>     (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> encNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *id</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *target</code>);
+<gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLENCDATAENSURECIPHERVALUE">xmlSecTmplEncDataEnsureCipherValue</a>  (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> encNode</code>);
+<gtkdoclink href="XMLNODE"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLENCDATAENSURECIPHERREFERENCE">xmlSecTmplEncDataEnsureCipherReference</a>
+                                                        (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> encNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *uri</code>);
+<gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLENCDATAGETENCMETHODNODE">xmlSecTmplEncDataGetEncMethodNode</a>   (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> encNode</code>);
+<gtkdoclink href="XMLNODE"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLCIPHERREFERENCEADDTRANSFORM">xmlSecTmplCipherReferenceAddTransform</a>
+                                                        (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> cipherReferenceNode</code>,
+                                                         <code class="PARAMETER"><gtkdoclink href="XMLSECTRANSFORMID"><span class="TYPE">xmlSecTransformId</span></gtkdoclink> transformId</code>);
+<gtkdoclink href="XMLNODE"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLREFERENCELISTADDDATAREFERENCE">xmlSecTmplReferenceListAddDataReference</a>
+                                                        (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> encNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *uri</code>);
+<gtkdoclink href="XMLNODE"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLREFERENCELISTADDKEYREFERENCE">xmlSecTmplReferenceListAddKeyReference</a>
+                                                        (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> encNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *uri</code>);
+<gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLKEYINFOADDKEYNAME">xmlSecTmplKeyInfoAddKeyName</a>         (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> keyInfoNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *name</code>);
+<gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLKEYINFOADDKEYVALUE">xmlSecTmplKeyInfoAddKeyValue</a>        (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> keyInfoNode</code>);
+<gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLKEYINFOADDX509DATA">xmlSecTmplKeyInfoAddX509Data</a>        (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> keyInfoNode</code>);
+<gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLKEYINFOADDRETRIEVALMETHOD">xmlSecTmplKeyInfoAddRetrievalMethod</a> (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> keyInfoNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *uri</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *type</code>);
+<gtkdoclink href="XMLNODE"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLRETRIEVALMETHODADDTRANSFORM">xmlSecTmplRetrievalMethodAddTransform</a>
+                                                        (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> retrMethodNode</code>,
+                                                         <code class="PARAMETER"><gtkdoclink href="XMLSECTRANSFORMID"><span class="TYPE">xmlSecTransformId</span></gtkdoclink> transformId</code>);
+<gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLKEYINFOADDENCRYPTEDKEY">xmlSecTmplKeyInfoAddEncryptedKey</a>    (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> keyInfoNode</code>,
+                                                         <code class="PARAMETER"><gtkdoclink href="XMLSECTRANSFORMID"><span class="TYPE">xmlSecTransformId</span></gtkdoclink> encMethodId</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *id</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *type</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *recipient</code>);
+<gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLX509DATAADDISSUERSERIAL">xmlSecTmplX509DataAddIssuerSerial</a>   (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> x509DataNode</code>);
+<gtkdoclink href="XMLNODE"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLX509ISSUERSERIALADDISSUERNAME">xmlSecTmplX509IssuerSerialAddIssuerName</a>
+                                                        (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> x509IssuerSerialNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *issuerName</code>);
+<gtkdoclink href="XMLNODE"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLX509ISSUERSERIALADDSERIALNUMBER">xmlSecTmplX509IssuerSerialAddSerialNumber</a>
+                                                        (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> x509IssuerSerialNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *serial</code>);
+<gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLX509DATAADDSUBJECTNAME">xmlSecTmplX509DataAddSubjectName</a>    (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> x509DataNode</code>);
+<gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLX509DATAADDSKI">xmlSecTmplX509DataAddSKI</a>            (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> x509DataNode</code>);
+<gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLX509DATAADDCERTIFICATE">xmlSecTmplX509DataAddCertificate</a>    (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> x509DataNode</code>);
+<gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLX509DATAADDCRL">xmlSecTmplX509DataAddCRL</a>            (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> x509DataNode</code>);
+<gtkdoclink href="INT"><span class="RETURNVALUE">int</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLTRANSFORMADDHMACOUTPUTLENGTH">xmlSecTmplTransformAddHmacOutputLength</a>
+                                                        (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> transformNode</code>,
+                                                         <code class="PARAMETER"><a href="xmlsec-xmlsec.html#XMLSECSIZE"><span class="TYPE">xmlSecSize</span></a> bitsLen</code>);
+<gtkdoclink href="INT"><span class="RETURNVALUE">int</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLTRANSFORMADDRSAOAEPPARAM">xmlSecTmplTransformAddRsaOaepParam</a>  (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> transformNode</code>,
+                                                         <code class="PARAMETER">const <a href="xmlsec-xmlsec.html#XMLSECBYTE"><span class="TYPE">xmlSecByte</span></a> *buf</code>,
+                                                         <code class="PARAMETER"><a href="xmlsec-xmlsec.html#XMLSECSIZE"><span class="TYPE">xmlSecSize</span></a> size</code>);
+<gtkdoclink href="INT"><span class="RETURNVALUE">int</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLTRANSFORMADDXSLTSTYLESHEET">xmlSecTmplTransformAddXsltStylesheet</a>
+                                                        (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> transformNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *xslt</code>);
+<gtkdoclink href="INT"><span class="RETURNVALUE">int</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLTRANSFORMADDC14NINCLNAMESPACES">xmlSecTmplTransformAddC14NInclNamespaces</a>
+                                                        (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> transformNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *prefixList</code>);
+<gtkdoclink href="INT"><span class="RETURNVALUE">int</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLTRANSFORMADDXPATH">xmlSecTmplTransformAddXPath</a>         (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> transformNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *expression</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> **nsList</code>);
+<gtkdoclink href="INT"><span class="RETURNVALUE">int</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLTRANSFORMADDXPATH2">xmlSecTmplTransformAddXPath2</a>        (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> transformNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *type</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *expression</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> **nsList</code>);
+<gtkdoclink href="INT"><span class="RETURNVALUE">int</span></gtkdoclink><a href="xmlsec-templates.html#XMLSECTMPLTRANSFORMADDXPOINTER">xmlSecTmplTransformAddXPointer</a>      (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> transformNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *expression</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> **nsList</code>);</pre>
+</div>
+<div class="REFSECT1">
+<a name="XMLSEC-TEMPLATES.DESCRIPTION"></a><h2>Description</h2>
+<p>Dynamic templates creation functions.</p>
+</div>
+<div class="REFSECT1">
+<a name="XMLSEC-TEMPLATES.DETAILS"></a><h2>Details</h2>
+<div class="REFSECT2">
+<a name="XMLSECTMPLSIGNATURECREATE"></a><h3>xmlSecTmplSignatureCreate ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink>          xmlSecTmplSignatureCreate           (<code class="PARAMETER"><gtkdoclink href="XMLDOC"><span class="TYPE">xmlDocPtr</span></gtkdoclink> doc</code>,
+                                                         <code class="PARAMETER"><gtkdoclink href="XMLSECTRANSFORMID"><span class="TYPE">xmlSecTransformId</span></gtkdoclink> c14nMethodId</code>,
+                                                         <code class="PARAMETER"><gtkdoclink href="XMLSECTRANSFORMID"><span class="TYPE">xmlSecTransformId</span></gtkdoclink> signMethodId</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *id</code>);</pre>
+<p>Creates new <a href="http://www.w3.org/TR/xmldsig-core/#sec-Signature" target="_top">&lt;dsig:Signature/&gt;</a> node with the mandatory <a href="http://www.w3.org/TR/xmldsig-core/#sec-SignedInfo" target="_top">&lt;dsig:SignedInfo/&gt;</a>,
+<a href="http://www.w3.org/TR/xmldsig-core/#sec-CanonicalizationMethod" target="_top">&lt;dsig:CanonicalizationMethod/&gt;</a>, <a href="http://www.w3.org/TR/xmldsig-core/#sec-SignatureMethod" target="_top">&lt;dsig:SignatureMethod/&gt;</a> and
+<a href="http://www.w3.org/TR/xmldsig-core/#sec-SignatureValue" target="_top">&lt;dsig:SignatureValue/&gt;</a> children and sub-children.
+The application is responsible for inserting the returned node
+in the XML document.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15245"><span style="white-space: nowrap"><code class="PARAMETER">doc</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to signature document or NULL; in the
+                     second case, application must later call <code class="PARAMETER">xmlSetTreeDoc</code>
+                     to ensure that all the children nodes have correct
+                     pointer to XML document.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15251"><span style="white-space: nowrap"><code class="PARAMETER">c14nMethodId</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the signature canonicalization method.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15256"><span style="white-space: nowrap"><code class="PARAMETER">signMethodId</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the signature  method.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15261"><span style="white-space: nowrap"><code class="PARAMETER">id</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the node id (may be NULL).</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15266"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> the pointer to newly created <a href="http://www.w3.org/TR/xmldsig-core/#sec-Signature" target="_top">&lt;dsig:Signature/&gt;</a> node or NULL if an
+error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLSIGNATURECREATENSPREF"></a><h3>xmlSecTmplSignatureCreateNsPref ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink>          xmlSecTmplSignatureCreateNsPref     (<code class="PARAMETER"><gtkdoclink href="XMLDOC"><span class="TYPE">xmlDocPtr</span></gtkdoclink> doc</code>,
+                                                         <code class="PARAMETER"><gtkdoclink href="XMLSECTRANSFORMID"><span class="TYPE">xmlSecTransformId</span></gtkdoclink> c14nMethodId</code>,
+                                                         <code class="PARAMETER"><gtkdoclink href="XMLSECTRANSFORMID"><span class="TYPE">xmlSecTransformId</span></gtkdoclink> signMethodId</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *id</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *nsPrefix</code>);</pre>
+<p>Creates new <a href="http://www.w3.org/TR/xmldsig-core/#sec-Signature" target="_top">&lt;dsig:Signature/&gt;</a> node with the mandatory
+<a href="http://www.w3.org/TR/xmldsig-core/#sec-SignedInfo" target="_top">&lt;dsig:SignedInfo/&gt;</a>, <a href="http://www.w3.org/TR/xmldsig-core/#sec-CanonicalizationMethod" target="_top">&lt;dsig:CanonicalizationMethod/&gt;</a>,
+<a href="http://www.w3.org/TR/xmldsig-core/#sec-SignatureMethod" target="_top">&lt;dsig:SignatureMethod/&gt;</a> and <a href="http://www.w3.org/TR/xmldsig-core/#sec-SignatureValue" target="_top">&lt;dsig:SignatureValue/&gt;</a> children and
+sub-children. This method differs from xmlSecTmplSignatureCreate in
+that it will define the http://www.w3.org/2000/09/xmldsig#
+namespace with the given prefix that will be used for all of the
+appropriate child nodes.  The application is responsible for
+inserting the returned node in the XML document.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15301"><span style="white-space: nowrap"><code class="PARAMETER">doc</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to signature document or NULL; in the
+                     second case, application must later call <code class="PARAMETER">xmlSetTreeDoc</code>
+                     to ensure that all the children nodes have correct
+                     pointer to XML document.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15307"><span style="white-space: nowrap"><code class="PARAMETER">c14nMethodId</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the signature canonicalization method.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15312"><span style="white-space: nowrap"><code class="PARAMETER">signMethodId</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the signature  method.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15317"><span style="white-space: nowrap"><code class="PARAMETER">id</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the node id (may be NULL).</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15322"><span style="white-space: nowrap"><code class="PARAMETER">nsPrefix</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the namespace prefix for the signature element (e.g. "dsig"), or NULL</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15327"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> the pointer to newly created <a href="http://www.w3.org/TR/xmldsig-core/#sec-Signature" target="_top">&lt;dsig:Signature/&gt;</a> node or NULL if an
+error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLSIGNATUREENSUREKEYINFO"></a><h3>xmlSecTmplSignatureEnsureKeyInfo ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink>          xmlSecTmplSignatureEnsureKeyInfo    (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> signNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *id</code>);</pre>
+<p>Adds (if necessary) <a href="http://www.w3.org/TR/xmldsig-core/#sec-KeyInfo" target="_top">&lt;dsig:KeyInfo/&gt;</a> node to the <a href="http://www.w3.org/TR/xmldsig-core/#sec-Signature" target="_top">&lt;dsig:Signature/&gt;</a>
+node <code class="PARAMETER">signNode</code>.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15351"><span style="white-space: nowrap"><code class="PARAMETER">signNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the  pointer to <a href="http://www.w3.org/TR/xmldsig-core/#sec-Signature" target="_top">&lt;dsig:Signature/&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15357"><span style="white-space: nowrap"><code class="PARAMETER">id</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the node id (may be NULL).</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15362"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> the pointer to newly created <a href="http://www.w3.org/TR/xmldsig-core/#sec-KeyInfo" target="_top">&lt;dsig:KeyInfo/&gt;</a> node or NULL if an
+error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLSIGNATUREADDREFERENCE"></a><h3>xmlSecTmplSignatureAddReference ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink>          xmlSecTmplSignatureAddReference     (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> signNode</code>,
+                                                         <code class="PARAMETER"><gtkdoclink href="XMLSECTRANSFORMID"><span class="TYPE">xmlSecTransformId</span></gtkdoclink> digestMethodId</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *id</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *uri</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *type</code>);</pre>
+<p>Adds <a href="http://www.w3.org/TR/xmldsig-core/#sec-Reference" target="_top">&lt;dsig:Reference/&gt;</a> node with given URI (<code class="PARAMETER">uri</code>), Id (<code class="PARAMETER">id</code>) and
+Type (<code class="PARAMETER">type</code>) attributes and the required children <a href="http://www.w3.org/TR/xmldsig-core/#sec-DigestMethod" target="_top">&lt;dsig:DigestMethod/&gt;</a> and
+<a href="http://www.w3.org/TR/xmldsig-core/#sec-DigestValue" target="_top">&lt;dsig:DigestValue/&gt;</a> to the <a href="http://www.w3.org/TR/xmldsig-core/#sec-SignedInfo" target="_top">&lt;dsig:SignedInfo/&gt;</a> child of <code class="PARAMETER">signNode</code>.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15400"><span style="white-space: nowrap"><code class="PARAMETER">signNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to <a href="http://www.w3.org/TR/xmldsig-core/#sec-Signature" target="_top">&lt;dsig:Signature/&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15406"><span style="white-space: nowrap"><code class="PARAMETER">digestMethodId</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the reference digest method.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15411"><span style="white-space: nowrap"><code class="PARAMETER">id</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the node id (may be NULL).</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15416"><span style="white-space: nowrap"><code class="PARAMETER">uri</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the reference node uri (may be NULL).</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15421"><span style="white-space: nowrap"><code class="PARAMETER">type</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the reference node type (may be NULL).</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15426"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> the pointer to newly created <a href="http://www.w3.org/TR/xmldsig-core/#sec-Reference" target="_top">&lt;dsig:Reference/&gt;</a> node or NULL
+if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLSIGNATUREADDOBJECT"></a><h3>xmlSecTmplSignatureAddObject ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink>          xmlSecTmplSignatureAddObject        (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> signNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *id</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *mimeType</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *encoding</code>);</pre>
+<p>Adds <a href="http://www.w3.org/TR/xmldsig-core/#sec-Object" target="_top">&lt;dsig:Object/&gt;</a> node to the <a href="http://www.w3.org/TR/xmldsig-core/#sec-Signature" target="_top">&lt;dsig:Signature/&gt;</a> node <code class="PARAMETER">signNode</code>.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15456"><span style="white-space: nowrap"><code class="PARAMETER">signNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to <a href="http://www.w3.org/TR/xmldsig-core/#sec-Signature" target="_top">&lt;dsig:Signature/&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15462"><span style="white-space: nowrap"><code class="PARAMETER">id</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the node id (may be NULL).</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15467"><span style="white-space: nowrap"><code class="PARAMETER">mimeType</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the object mime type (may be NULL).</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15472"><span style="white-space: nowrap"><code class="PARAMETER">encoding</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the object encoding (may be NULL).</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15477"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> the pointer to newly created <a href="http://www.w3.org/TR/xmldsig-core/#sec-Object" target="_top">&lt;dsig:Object/&gt;</a> node or NULL
+if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLSIGNATUREGETSIGNMETHODNODE"></a><h3>xmlSecTmplSignatureGetSignMethodNode ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="XMLNODE"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink>          xmlSecTmplSignatureGetSignMethodNode
+                                                        (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> signNode</code>);</pre>
+<p>Gets pointer to <a href="http://www.w3.org/TR/xmldsig-core/#sec-SignatureMethod" target="_top">&lt;dsig:SignatureMethod/&gt;</a> child of <a href="http://www.w3.org/TR/xmldsig-core/#sec-KeyInfo" target="_top">&lt;dsig:KeyInfo/&gt;</a> node.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15497"><span style="white-space: nowrap"><code class="PARAMETER">signNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to <a href="http://www.w3.org/TR/xmldsig-core/#sec-Signature%20" target="_top">&lt;dsig:Signature /&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15503"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> pointer to <a href="http://www.w3.org/TR/xmldsig-core/#sec-SignatureMethod%20" target="_top">&lt;dsig:SignatureMethod /&gt;</a> node or NULL if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLSIGNATUREGETC14NMETHODNODE"></a><h3>xmlSecTmplSignatureGetC14NMethodNode ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="XMLNODE"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink>          xmlSecTmplSignatureGetC14NMethodNode
+                                                        (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> signNode</code>);</pre>
+<p>Gets pointer to <a href="http://www.w3.org/TR/xmldsig-core/#sec-CanonicalizationMethod" target="_top">&lt;dsig:CanonicalizationMethod/&gt;</a> child of <a href="http://www.w3.org/TR/xmldsig-core/#sec-KeyInfo" target="_top">&lt;dsig:KeyInfo/&gt;</a> node.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15523"><span style="white-space: nowrap"><code class="PARAMETER">signNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to <a href="http://www.w3.org/TR/xmldsig-core/#sec-Signature%20" target="_top">&lt;dsig:Signature /&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15529"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> pointer to <a href="http://www.w3.org/TR/xmldsig-core/#sec-CanonicalizationMethod%20" target="_top">&lt;dsig:CanonicalizationMethod /&gt;</a> node or NULL if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLREFERENCEADDTRANSFORM"></a><h3>xmlSecTmplReferenceAddTransform ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink>          xmlSecTmplReferenceAddTransform     (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> referenceNode</code>,
+                                                         <code class="PARAMETER"><gtkdoclink href="XMLSECTRANSFORMID"><span class="TYPE">xmlSecTransformId</span></gtkdoclink> transformId</code>);</pre>
+<p>Adds <a href="http://www.w3.org/TR/xmldsig-core/#sec-Transform" target="_top">&lt;dsig:Transform/&gt;</a> node to the <a href="http://www.w3.org/TR/xmldsig-core/#sec-Reference" target="_top">&lt;dsig:Reference/&gt;</a> node <code class="PARAMETER">referenceNode</code>.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15553"><span style="white-space: nowrap"><code class="PARAMETER">referenceNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to <a href="http://www.w3.org/TR/xmldsig-core/#sec-Reference" target="_top">&lt;dsig:Reference/&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15559"><span style="white-space: nowrap"><code class="PARAMETER">transformId</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the transform method id.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15564"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> the pointer to newly created <a href="http://www.w3.org/TR/xmldsig-core/#sec-Transform" target="_top">&lt;dsig:Transform/&gt;</a> node or NULL if an
+error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLOBJECTADDSIGNPROPERTIES"></a><h3>xmlSecTmplObjectAddSignProperties ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink>          xmlSecTmplObjectAddSignProperties   (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> objectNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *id</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *target</code>);</pre>
+<p>Adds <a href="http://www.w3.org/TR/xmldsig-core/#sec-SignatureProperties" target="_top">&lt;dsig:SignatureProperties/&gt;</a> node to the <a href="http://www.w3.org/TR/xmldsig-core/#sec-Object" target="_top">&lt;dsig:Object/&gt;</a> node <code class="PARAMETER">objectNode</code>.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15591"><span style="white-space: nowrap"><code class="PARAMETER">objectNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the  pointer to <a href="http://www.w3.org/TR/xmldsig-core/#sec-Object" target="_top">&lt;dsig:Object/&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15597"><span style="white-space: nowrap"><code class="PARAMETER">id</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the node id (may be NULL).</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15602"><span style="white-space: nowrap"><code class="PARAMETER">target</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the Target  (may be NULL).</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15607"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> the pointer to newly created <a href="http://www.w3.org/TR/xmldsig-core/#sec-SignatureProperties" target="_top">&lt;dsig:SignatureProperties/&gt;</a> node or NULL
+if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLOBJECTADDMANIFEST"></a><h3>xmlSecTmplObjectAddManifest ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink>          xmlSecTmplObjectAddManifest         (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> objectNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *id</code>);</pre>
+<p>Adds <a href="http://www.w3.org/TR/xmldsig-core/#sec-Manifest" target="_top">&lt;dsig:Manifest/&gt;</a> node to the <a href="http://www.w3.org/TR/xmldsig-core/#sec-Object" target="_top">&lt;dsig:Object/&gt;</a> node <code class="PARAMETER">objectNode</code>.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15631"><span style="white-space: nowrap"><code class="PARAMETER">objectNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the  pointer to <a href="http://www.w3.org/TR/xmldsig-core/#sec-Object" target="_top">&lt;dsig:Object/&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15637"><span style="white-space: nowrap"><code class="PARAMETER">id</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the node id (may be NULL).</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15642"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> the pointer to newly created <a href="http://www.w3.org/TR/xmldsig-core/#sec-Manifest" target="_top">&lt;dsig:Manifest/&gt;</a> node or NULL
+if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLMANIFESTADDREFERENCE"></a><h3>xmlSecTmplManifestAddReference ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink>          xmlSecTmplManifestAddReference      (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> manifestNode</code>,
+                                                         <code class="PARAMETER"><gtkdoclink href="XMLSECTRANSFORMID"><span class="TYPE">xmlSecTransformId</span></gtkdoclink> digestMethodId</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *id</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *uri</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *type</code>);</pre>
+<p>Adds <a href="http://www.w3.org/TR/xmldsig-core/#sec-Reference" target="_top">&lt;dsig:Reference/&gt;</a> node with specified URI (<code class="PARAMETER">uri</code>), Id (<code class="PARAMETER">id</code>) and
+Type (<code class="PARAMETER">type</code>) attributes and the required children <a href="http://www.w3.org/TR/xmldsig-core/#sec-DigestMethod" target="_top">&lt;dsig:DigestMethod/&gt;</a> and
+<a href="http://www.w3.org/TR/xmldsig-core/#sec-DigestValue" target="_top">&lt;dsig:DigestValue/&gt;</a> to the <a href="http://www.w3.org/TR/xmldsig-core/#sec-Manifest" target="_top">&lt;dsig:Manifest/&gt;</a> node <code class="PARAMETER">manifestNode</code>.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15680"><span style="white-space: nowrap"><code class="PARAMETER">manifestNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to <a href="http://www.w3.org/TR/xmldsig-core/#sec-Manifest" target="_top">&lt;dsig:Manifest/&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15686"><span style="white-space: nowrap"><code class="PARAMETER">digestMethodId</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the reference digest method.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15691"><span style="white-space: nowrap"><code class="PARAMETER">id</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the node id (may be NULL).</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15696"><span style="white-space: nowrap"><code class="PARAMETER">uri</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the reference node uri (may be NULL).</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15701"><span style="white-space: nowrap"><code class="PARAMETER">type</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the reference node type (may be NULL).</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15706"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> the pointer to newly created <a href="http://www.w3.org/TR/xmldsig-core/#sec-Reference" target="_top">&lt;dsig:Reference/&gt;</a> node or NULL
+if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLENCDATACREATE"></a><h3>xmlSecTmplEncDataCreate ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink>          xmlSecTmplEncDataCreate             (<code class="PARAMETER"><gtkdoclink href="XMLDOC"><span class="TYPE">xmlDocPtr</span></gtkdoclink> doc</code>,
+                                                         <code class="PARAMETER"><gtkdoclink href="XMLSECTRANSFORMID"><span class="TYPE">xmlSecTransformId</span></gtkdoclink> encMethodId</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *id</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *type</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *mimeType</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *encoding</code>);</pre>
+<p>Creates new <a href="http://www.w3.org/TR/xmlenc-core/#sec-EncryptedData%20" target="_top">&lt;enc:EncryptedData /&gt;</a> node for encryption template.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15740"><span style="white-space: nowrap"><code class="PARAMETER">doc</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to signature document or NULL; in the later
+                     case, application must later call <code class="PARAMETER">xmlSetTreeDoc</code> to ensure
+                     that all the children nodes have correct pointer to XML document.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15746"><span style="white-space: nowrap"><code class="PARAMETER">encMethodId</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the encryption method (may be NULL).</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15751"><span style="white-space: nowrap"><code class="PARAMETER">id</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the Id attribute (optional).</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15756"><span style="white-space: nowrap"><code class="PARAMETER">type</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the Type attribute (optional)</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15761"><span style="white-space: nowrap"><code class="PARAMETER">mimeType</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the MimeType attribute (optional)</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15766"><span style="white-space: nowrap"><code class="PARAMETER">encoding</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the Encoding attribute (optional)</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15771"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> the pointer newly created  <a href="http://www.w3.org/TR/xmlenc-core/#sec-EncryptedData" target="_top">&lt;enc:EncryptedData/&gt;</a> node or NULL
+if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLENCDATAENSUREKEYINFO"></a><h3>xmlSecTmplEncDataEnsureKeyInfo ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink>          xmlSecTmplEncDataEnsureKeyInfo      (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> encNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *id</code>);</pre>
+<p>Adds <a href="http://www.w3.org/TR/xmldsig-core/#sec-KeyInfo" target="_top">&lt;dsig:KeyInfo/&gt;</a> to the  <a href="http://www.w3.org/TR/xmlenc-core/#sec-EncryptedData" target="_top">&lt;enc:EncryptedData/&gt;</a> node <code class="PARAMETER">encNode</code>.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15795"><span style="white-space: nowrap"><code class="PARAMETER">encNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to <a href="http://www.w3.org/TR/xmlenc-core/#sec-EncryptedData" target="_top">&lt;enc:EncryptedData/&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15801"><span style="white-space: nowrap"><code class="PARAMETER">id</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the Id attrbibute (optional).</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15806"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> the pointer to newly created <a href="http://www.w3.org/TR/xmldsig-core/#sec-KeyInfo" target="_top">&lt;dsig:KeyInfo/&gt;</a> node or
+NULL if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLENCDATAENSUREENCPROPERTIES"></a><h3>xmlSecTmplEncDataEnsureEncProperties ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="XMLNODE"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink>          xmlSecTmplEncDataEnsureEncProperties
+                                                        (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> encNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *id</code>);</pre>
+<p>Adds <a href="http://www.w3.org/TR/xmlenc-core/#sec-EncryptionProperties" target="_top">&lt;enc:EncryptionProperties/&gt;</a> node to the <a href="http://www.w3.org/TR/xmlenc-core/#sec-EncryptedData" target="_top">&lt;enc:EncryptedData/&gt;</a>
+node <code class="PARAMETER">encNode</code>.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15830"><span style="white-space: nowrap"><code class="PARAMETER">encNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to <a href="http://www.w3.org/TR/xmlenc-core/#sec-EncryptedData" target="_top">&lt;enc:EncryptedData/&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15836"><span style="white-space: nowrap"><code class="PARAMETER">id</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the Id attribute (optional).</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15841"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> the pointer to newly created <a href="http://www.w3.org/TR/xmlenc-core/#sec-EncryptionProperties" target="_top">&lt;enc:EncryptionProperties/&gt;</a> node or
+NULL if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLENCDATAADDENCPROPERTY"></a><h3>xmlSecTmplEncDataAddEncProperty ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink>          xmlSecTmplEncDataAddEncProperty     (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> encNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *id</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *target</code>);</pre>
+<p>Adds <a href="http://www.w3.org/TR/xmlenc-core/#sec-EncryptionProperty" target="_top">&lt;enc:EncryptionProperty/&gt;</a> node (and the parent
+<a href="http://www.w3.org/TR/xmlenc-core/#sec-EncryptionProperties" target="_top">&lt;enc:EncryptionProperties/&gt;</a> node if required) to the
+<a href="http://www.w3.org/TR/xmlenc-core/#sec-EncryptedData" target="_top">&lt;enc:EncryptedData/&gt;</a> node <code class="PARAMETER">encNode</code>.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15869"><span style="white-space: nowrap"><code class="PARAMETER">encNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to <a href="http://www.w3.org/TR/xmlenc-core/#sec-EncryptedData" target="_top">&lt;enc:EncryptedData/&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15875"><span style="white-space: nowrap"><code class="PARAMETER">id</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the Id attribute (optional).</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15880"><span style="white-space: nowrap"><code class="PARAMETER">target</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the Target attribute (optional).</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15885"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> the pointer to newly created <a href="http://www.w3.org/TR/xmlenc-core/#sec-EncryptionProperty" target="_top">&lt;enc:EncryptionProperty/&gt;</a> node or
+NULL if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLENCDATAENSURECIPHERVALUE"></a><h3>xmlSecTmplEncDataEnsureCipherValue ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink>          xmlSecTmplEncDataEnsureCipherValue  (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> encNode</code>);</pre>
+<p>Adds <a href="http://www.w3.org/TR/xmlenc-core/#sec-CipherValue" target="_top">&lt;enc:CipherValue/&gt;</a> to the <a href="http://www.w3.org/TR/xmlenc-core/#sec-EncryptedData" target="_top">&lt;enc:EncryptedData/&gt;</a> node <code class="PARAMETER">encNode</code>.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15906"><span style="white-space: nowrap"><code class="PARAMETER">encNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to <a href="http://www.w3.org/TR/xmlenc-core/#sec-EncryptedData" target="_top">&lt;enc:EncryptedData/&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15912"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> the pointer to newly created <a href="http://www.w3.org/TR/xmlenc-core/#sec-CipherValue" target="_top">&lt;enc:CipherValue/&gt;</a> node or
+NULL if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLENCDATAENSURECIPHERREFERENCE"></a><h3>xmlSecTmplEncDataEnsureCipherReference ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="XMLNODE"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink>          xmlSecTmplEncDataEnsureCipherReference
+                                                        (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> encNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *uri</code>);</pre>
+<p>Adds <a href="http://www.w3.org/TR/xmlenc-core/#sec-CipherReference" target="_top">&lt;enc:CipherReference/&gt;</a> node with specified URI attribute <code class="PARAMETER">uri</code>
+to the <a href="http://www.w3.org/TR/xmlenc-core/#sec-EncryptedData" target="_top">&lt;enc:EncryptedData/&gt;</a> node <code class="PARAMETER">encNode</code>.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15937"><span style="white-space: nowrap"><code class="PARAMETER">encNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to <a href="http://www.w3.org/TR/xmlenc-core/#sec-EncryptedData" target="_top">&lt;enc:EncryptedData/&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15943"><span style="white-space: nowrap"><code class="PARAMETER">uri</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the URI attribute (may be NULL).</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15948"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> the pointer to newly created <a href="http://www.w3.org/TR/xmlenc-core/#sec-CipherReference" target="_top">&lt;enc:CipherReference/&gt;</a> node or
+NULL if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLENCDATAGETENCMETHODNODE"></a><h3>xmlSecTmplEncDataGetEncMethodNode ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink>          xmlSecTmplEncDataGetEncMethodNode   (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> encNode</code>);</pre>
+<p>Gets pointer to <a href="http://www.w3.org/TR/xmlenc-core/#sec-EncrytpionMethod" target="_top">&lt;enc:EncrytpionMethod/&gt;</a> node.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15967"><span style="white-space: nowrap"><code class="PARAMETER">encNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to <a href="http://www.w3.org/TR/xmlenc-core/#sec-EcnryptedData%20" target="_top">&lt;enc:EcnryptedData /&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN15973"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> pointer to <a href="http://www.w3.org/TR/xmlenc-core/#sec-EncryptionMethod%20" target="_top">&lt;enc:EncryptionMethod /&gt;</a> node or NULL if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLCIPHERREFERENCEADDTRANSFORM"></a><h3>xmlSecTmplCipherReferenceAddTransform ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="XMLNODE"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink>          xmlSecTmplCipherReferenceAddTransform
+                                                        (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> cipherReferenceNode</code>,
+                                                         <code class="PARAMETER"><gtkdoclink href="XMLSECTRANSFORMID"><span class="TYPE">xmlSecTransformId</span></gtkdoclink> transformId</code>);</pre>
+<p>Adds <a href="http://www.w3.org/TR/xmldsig-core/#sec-Transform" target="_top">&lt;dsig:Transform/&gt;</a> node (and the parent <a href="http://www.w3.org/TR/xmldsig-core/#sec-Transforms" target="_top">&lt;dsig:Transforms/&gt;</a> node)
+with specified transform methods <code class="PARAMETER">transform</code> to the <a href="http://www.w3.org/TR/xmlenc-core/#sec-CipherReference" target="_top">&lt;enc:CipherReference/&gt;</a>
+child node of the <a href="http://www.w3.org/TR/xmlenc-core/#sec-EncryptedData" target="_top">&lt;enc:EncryptedData/&gt;</a> node <code class="PARAMETER">encNode</code>.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16000"><span style="white-space: nowrap"><code class="PARAMETER">cipherReferenceNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to <a href="http://www.w3.org/TR/xmlenc-core/#sec-CipherReference" target="_top">&lt;enc:CipherReference/&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16006"><span style="white-space: nowrap"><code class="PARAMETER">transformId</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the transform id.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16011"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> the pointer to newly created <a href="http://www.w3.org/TR/xmldsig-core/#sec-Transform" target="_top">&lt;dsig:Transform/&gt;</a> node or
+NULL if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLREFERENCELISTADDDATAREFERENCE"></a><h3>xmlSecTmplReferenceListAddDataReference ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="XMLNODE"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink>          xmlSecTmplReferenceListAddDataReference
+                                                        (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> encNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *uri</code>);</pre>
+<p>Adds <a href="http://www.w3.org/TR/xmlenc-core/#sec-DataReference" target="_top">&lt;enc:DataReference/&gt;</a> and the parent <a href="http://www.w3.org/TR/xmlenc-core/#sec-ReferenceList" target="_top">&lt;enc:ReferenceList/&gt;</a> node (if needed).</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16034"><span style="white-space: nowrap"><code class="PARAMETER">encNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to <a href="http://www.w3.org/TR/xmlenc-core/#sec-EncryptedKey" target="_top">&lt;enc:EncryptedKey/&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16040"><span style="white-space: nowrap"><code class="PARAMETER">uri</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>uri to reference (optional)</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16045"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> the pointer to newly created <a href="http://www.w3.org/TR/xmlenc-core/#sec-DataReference" target="_top">&lt;enc:DataReference/&gt;</a> node or
+NULL if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLREFERENCELISTADDKEYREFERENCE"></a><h3>xmlSecTmplReferenceListAddKeyReference ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="XMLNODE"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink>          xmlSecTmplReferenceListAddKeyReference
+                                                        (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> encNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *uri</code>);</pre>
+<p>Adds <a href="http://www.w3.org/TR/xmlenc-core/#sec-KeyReference" target="_top">&lt;enc:KeyReference/&gt;</a> and the parent <a href="http://www.w3.org/TR/xmlenc-core/#sec-ReferenceList" target="_top">&lt;enc:ReferenceList/&gt;</a> node (if needed).</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16068"><span style="white-space: nowrap"><code class="PARAMETER">encNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to <a href="http://www.w3.org/TR/xmlenc-core/#sec-EncryptedKey" target="_top">&lt;enc:EncryptedKey/&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16074"><span style="white-space: nowrap"><code class="PARAMETER">uri</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>uri to reference (optional)</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16079"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> the pointer to newly created <a href="http://www.w3.org/TR/xmlenc-core/#sec-KeyReference" target="_top">&lt;enc:KeyReference/&gt;</a> node or
+NULL if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLKEYINFOADDKEYNAME"></a><h3>xmlSecTmplKeyInfoAddKeyName ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink>          xmlSecTmplKeyInfoAddKeyName         (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> keyInfoNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *name</code>);</pre>
+<p>Adds <a href="http://www.w3.org/TR/xmldsig-core/#sec-KeyName" target="_top">&lt;dsig:KeyName/&gt;</a> node to the <a href="http://www.w3.org/TR/xmldsig-core/#sec-KeyInfo" target="_top">&lt;dsig:KeyInfo/&gt;</a> node <code class="PARAMETER">keyInfoNode</code>.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16103"><span style="white-space: nowrap"><code class="PARAMETER">keyInfoNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to <a href="http://www.w3.org/TR/xmldsig-core/#sec-KeyInfo" target="_top">&lt;dsig:KeyInfo/&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16109"><span style="white-space: nowrap"><code class="PARAMETER">name</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the key name (optional).</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16114"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> the pointer to the newly created <a href="http://www.w3.org/TR/xmldsig-core/#sec-KeyName" target="_top">&lt;dsig:KeyName/&gt;</a> node or
+NULL if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLKEYINFOADDKEYVALUE"></a><h3>xmlSecTmplKeyInfoAddKeyValue ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink>          xmlSecTmplKeyInfoAddKeyValue        (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> keyInfoNode</code>);</pre>
+<p>Adds <a href="http://www.w3.org/TR/xmldsig-core/#sec-KeyValue" target="_top">&lt;dsig:KeyValue/&gt;</a> node to the <a href="http://www.w3.org/TR/xmldsig-core/#sec-KeyInfo" target="_top">&lt;dsig:KeyInfo/&gt;</a> node <code class="PARAMETER">keyInfoNode</code>.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16135"><span style="white-space: nowrap"><code class="PARAMETER">keyInfoNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to <a href="http://www.w3.org/TR/xmldsig-core/#sec-KeyInfo" target="_top">&lt;dsig:KeyInfo/&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16141"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> the pointer to the newly created <a href="http://www.w3.org/TR/xmldsig-core/#sec-KeyValue" target="_top">&lt;dsig:KeyValue/&gt;</a> node or
+NULL if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLKEYINFOADDX509DATA"></a><h3>xmlSecTmplKeyInfoAddX509Data ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink>          xmlSecTmplKeyInfoAddX509Data        (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> keyInfoNode</code>);</pre>
+<p>Adds <a href="http://www.w3.org/TR/xmldsig-core/#sec-X509Data" target="_top">&lt;dsig:X509Data/&gt;</a> node to the <a href="http://www.w3.org/TR/xmldsig-core/#sec-KeyInfo" target="_top">&lt;dsig:KeyInfo/&gt;</a> node <code class="PARAMETER">keyInfoNode</code>.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16162"><span style="white-space: nowrap"><code class="PARAMETER">keyInfoNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to <a href="http://www.w3.org/TR/xmldsig-core/#sec-KeyInfo" target="_top">&lt;dsig:KeyInfo/&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16168"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> the pointer to the newly created <a href="http://www.w3.org/TR/xmldsig-core/#sec-X509Data" target="_top">&lt;dsig:X509Data/&gt;</a> node or
+NULL if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLKEYINFOADDRETRIEVALMETHOD"></a><h3>xmlSecTmplKeyInfoAddRetrievalMethod ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink>          xmlSecTmplKeyInfoAddRetrievalMethod (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> keyInfoNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *uri</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *type</code>);</pre>
+<p>Adds <a href="http://www.w3.org/TR/xmldsig-core/#sec-RetrievalMethod" target="_top">&lt;dsig:RetrievalMethod/&gt;</a> node to the <a href="http://www.w3.org/TR/xmldsig-core/#sec-KeyInfo" target="_top">&lt;dsig:KeyInfo/&gt;</a> node <code class="PARAMETER">keyInfoNode</code>.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16195"><span style="white-space: nowrap"><code class="PARAMETER">keyInfoNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to <a href="http://www.w3.org/TR/xmldsig-core/#sec-KeyInfo" target="_top">&lt;dsig:KeyInfo/&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16201"><span style="white-space: nowrap"><code class="PARAMETER">uri</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the URI attribute (optional).</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16206"><span style="white-space: nowrap"><code class="PARAMETER">type</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the Type attribute(optional).</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16211"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> the pointer to the newly created <a href="http://www.w3.org/TR/xmldsig-core/#sec-RetrievalMethod" target="_top">&lt;dsig:RetrievalMethod/&gt;</a> node or
+NULL if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLRETRIEVALMETHODADDTRANSFORM"></a><h3>xmlSecTmplRetrievalMethodAddTransform ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="XMLNODE"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink>          xmlSecTmplRetrievalMethodAddTransform
+                                                        (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> retrMethodNode</code>,
+                                                         <code class="PARAMETER"><gtkdoclink href="XMLSECTRANSFORMID"><span class="TYPE">xmlSecTransformId</span></gtkdoclink> transformId</code>);</pre>
+<p>Adds <a href="http://www.w3.org/TR/xmldsig-core/#sec-Transform" target="_top">&lt;dsig:Transform/&gt;</a> node (and the parent <a href="http://www.w3.org/TR/xmldsig-core/#sec-Transforms" target="_top">&lt;dsig:Transforms/&gt;</a> node
+if required) to the <a href="http://www.w3.org/TR/xmldsig-core/#sec-RetrievalMethod" target="_top">&lt;dsig:RetrievalMethod/&gt;</a> node <code class="PARAMETER">retrMethod</code>.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16236"><span style="white-space: nowrap"><code class="PARAMETER">retrMethodNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to <a href="http://www.w3.org/TR/xmldsig-core/#sec-RetrievalMethod" target="_top">&lt;dsig:RetrievalMethod/&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16242"><span style="white-space: nowrap"><code class="PARAMETER">transformId</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the transform id.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16247"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> the pointer to the newly created <a href="http://www.w3.org/TR/xmldsig-core/#sec-Transforms" target="_top">&lt;dsig:Transforms/&gt;</a> node or
+NULL if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLKEYINFOADDENCRYPTEDKEY"></a><h3>xmlSecTmplKeyInfoAddEncryptedKey ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink>          xmlSecTmplKeyInfoAddEncryptedKey    (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> keyInfoNode</code>,
+                                                         <code class="PARAMETER"><gtkdoclink href="XMLSECTRANSFORMID"><span class="TYPE">xmlSecTransformId</span></gtkdoclink> encMethodId</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *id</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *type</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *recipient</code>);</pre>
+<p>Adds <a href="http://www.w3.org/TR/xmlenc-core/#sec-EncryptedKey" target="_top">&lt;enc:EncryptedKey/&gt;</a> node with given attributes to
+the <a href="http://www.w3.org/TR/xmldsig-core/#sec-KeyInfo" target="_top">&lt;dsig:KeyInfo/&gt;</a> node <code class="PARAMETER">keyInfoNode</code>.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16280"><span style="white-space: nowrap"><code class="PARAMETER">keyInfoNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to <a href="http://www.w3.org/TR/xmldsig-core/#sec-KeyInfo" target="_top">&lt;dsig:KeyInfo/&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16286"><span style="white-space: nowrap"><code class="PARAMETER">encMethodId</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the encryption method (optional).</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16291"><span style="white-space: nowrap"><code class="PARAMETER">id</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the Id attribute (optional).</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16296"><span style="white-space: nowrap"><code class="PARAMETER">type</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the Type attribute (optional).</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16301"><span style="white-space: nowrap"><code class="PARAMETER">recipient</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the Recipient attribute (optional).</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16306"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> the pointer to the newly created <a href="http://www.w3.org/TR/xmlenc-core/#sec-EncryptedKey" target="_top">&lt;enc:EncryptedKey/&gt;</a> node or
+NULL if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLX509DATAADDISSUERSERIAL"></a><h3>xmlSecTmplX509DataAddIssuerSerial ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink>          xmlSecTmplX509DataAddIssuerSerial   (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> x509DataNode</code>);</pre>
+<p>Adds <a href="http://www.w3.org/TR/xmldsig-core/#sec-X509IssuerSerial" target="_top">&lt;dsig:X509IssuerSerial/&gt;</a> node to the given <a href="http://www.w3.org/TR/xmldsig-core/#sec-X509Data" target="_top">&lt;dsig:X509Data/&gt;</a> node.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16326"><span style="white-space: nowrap"><code class="PARAMETER">x509DataNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to <a href="http://www.w3.org/TR/xmldsig-core/#sec-X509Data" target="_top">&lt;dsig:X509Data/&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16332"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> the pointer to the newly created <a href="http://www.w3.org/TR/xmldsig-core/#sec-X509IssuerSerial" target="_top">&lt;dsig:X509IssuerSerial/&gt;</a> node or
+NULL if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLX509ISSUERSERIALADDISSUERNAME"></a><h3>xmlSecTmplX509IssuerSerialAddIssuerName ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="XMLNODE"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink>          xmlSecTmplX509IssuerSerialAddIssuerName
+                                                        (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> x509IssuerSerialNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *issuerName</code>);</pre>
+<p>Adds <a href="http://www.w3.org/TR/xmldsig-core/#sec-X509IssuerName" target="_top">&lt;dsig:X509IssuerName/&gt;</a> node to the <a href="http://www.w3.org/TR/xmldsig-core/#sec-X509IssuerSerial" target="_top">&lt;dsig:X509IssuerSerial/&gt;</a> node <code class="PARAMETER">x509IssuerSerialNode</code>.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16356"><span style="white-space: nowrap"><code class="PARAMETER">x509IssuerSerialNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to <a href="http://www.w3.org/TR/xmldsig-core/#sec-X509IssuerSerial" target="_top">&lt;dsig:X509IssuerSerial/&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16362"><span style="white-space: nowrap"><code class="PARAMETER">issuerName</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the issuer name (optional).</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16367"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> the pointer to the newly created <a href="http://www.w3.org/TR/xmldsig-core/#sec-X509IssuerName" target="_top">&lt;dsig:X509IssuerName/&gt;</a> node or
+NULL if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLX509ISSUERSERIALADDSERIALNUMBER"></a><h3>xmlSecTmplX509IssuerSerialAddSerialNumber ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="XMLNODE"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink>          xmlSecTmplX509IssuerSerialAddSerialNumber
+                                                        (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> x509IssuerSerialNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *serial</code>);</pre>
+<p>Adds <a href="http://www.w3.org/TR/xmldsig-core/#sec-X509SerialNumber" target="_top">&lt;dsig:X509SerialNumber/&gt;</a> node to the <a href="http://www.w3.org/TR/xmldsig-core/#sec-X509IssuerSerial" target="_top">&lt;dsig:X509IssuerSerial/&gt;</a> node <code class="PARAMETER">x509IssuerSerialNode</code>.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16391"><span style="white-space: nowrap"><code class="PARAMETER">x509IssuerSerialNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to <a href="http://www.w3.org/TR/xmldsig-core/#sec-X509IssuerSerial" target="_top">&lt;dsig:X509IssuerSerial/&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16397"><span style="white-space: nowrap"><code class="PARAMETER">serial</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the serial number (optional).</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16402"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> the pointer to the newly created <a href="http://www.w3.org/TR/xmldsig-core/#sec-X509SerialNumber" target="_top">&lt;dsig:X509SerialNumber/&gt;</a> node or
+NULL if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLX509DATAADDSUBJECTNAME"></a><h3>xmlSecTmplX509DataAddSubjectName ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink>          xmlSecTmplX509DataAddSubjectName    (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> x509DataNode</code>);</pre>
+<p>Adds <a href="http://www.w3.org/TR/xmldsig-core/#sec-X509SubjectName" target="_top">&lt;dsig:X509SubjectName/&gt;</a> node to the given <a href="http://www.w3.org/TR/xmldsig-core/#sec-X509Data" target="_top">&lt;dsig:X509Data/&gt;</a> node.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16422"><span style="white-space: nowrap"><code class="PARAMETER">x509DataNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to <a href="http://www.w3.org/TR/xmldsig-core/#sec-X509Data" target="_top">&lt;dsig:X509Data/&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16428"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> the pointer to the newly created <a href="http://www.w3.org/TR/xmldsig-core/#sec-X509SubjectName" target="_top">&lt;dsig:X509SubjectName/&gt;</a> node or
+NULL if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLX509DATAADDSKI"></a><h3>xmlSecTmplX509DataAddSKI ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink>          xmlSecTmplX509DataAddSKI            (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> x509DataNode</code>);</pre>
+<p>Adds <a href="http://www.w3.org/TR/xmldsig-core/#sec-X509SKI" target="_top">&lt;dsig:X509SKI/&gt;</a> node to the given <a href="http://www.w3.org/TR/xmldsig-core/#sec-X509Data" target="_top">&lt;dsig:X509Data/&gt;</a> node.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16448"><span style="white-space: nowrap"><code class="PARAMETER">x509DataNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to <a href="http://www.w3.org/TR/xmldsig-core/#sec-X509Data" target="_top">&lt;dsig:X509Data/&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16454"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> the pointer to the newly created <a href="http://www.w3.org/TR/xmldsig-core/#sec-X509SKI" target="_top">&lt;dsig:X509SKI/&gt;</a> node or
+NULL if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLX509DATAADDCERTIFICATE"></a><h3>xmlSecTmplX509DataAddCertificate ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink>          xmlSecTmplX509DataAddCertificate    (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> x509DataNode</code>);</pre>
+<p>Adds <a href="http://www.w3.org/TR/xmldsig-core/#sec-X509Certificate" target="_top">&lt;dsig:X509Certificate/&gt;</a> node to the given <a href="http://www.w3.org/TR/xmldsig-core/#sec-X509Data" target="_top">&lt;dsig:X509Data/&gt;</a> node.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16474"><span style="white-space: nowrap"><code class="PARAMETER">x509DataNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to <a href="http://www.w3.org/TR/xmldsig-core/#sec-X509Data" target="_top">&lt;dsig:X509Data/&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16480"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> the pointer to the newly created <a href="http://www.w3.org/TR/xmldsig-core/#sec-X509Certificate" target="_top">&lt;dsig:X509Certificate/&gt;</a> node or
+NULL if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLX509DATAADDCRL"></a><h3>xmlSecTmplX509DataAddCRL ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="XMLNODEPTR"><span class="RETURNVALUE">xmlNodePtr</span></gtkdoclink>          xmlSecTmplX509DataAddCRL            (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> x509DataNode</code>);</pre>
+<p>Adds <a href="http://www.w3.org/TR/xmldsig-core/#sec-X509CRL" target="_top">&lt;dsig:X509CRL/&gt;</a> node to the given <a href="http://www.w3.org/TR/xmldsig-core/#sec-X509Data" target="_top">&lt;dsig:X509Data/&gt;</a> node.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16500"><span style="white-space: nowrap"><code class="PARAMETER">x509DataNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to <a href="http://www.w3.org/TR/xmldsig-core/#sec-X509Data" target="_top">&lt;dsig:X509Data/&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16506"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> the pointer to the newly created <a href="http://www.w3.org/TR/xmldsig-core/#sec-X509CRL" target="_top">&lt;dsig:X509CRL/&gt;</a> node or
+NULL if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLTRANSFORMADDHMACOUTPUTLENGTH"></a><h3>xmlSecTmplTransformAddHmacOutputLength ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="INT"><span class="RETURNVALUE">int</span></gtkdoclink>                 xmlSecTmplTransformAddHmacOutputLength
+                                                        (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> transformNode</code>,
+                                                         <code class="PARAMETER"><a href="xmlsec-xmlsec.html#XMLSECSIZE"><span class="TYPE">xmlSecSize</span></a> bitsLen</code>);</pre>
+<p>Creates <a href="http://www.w3.org/TR/xmldsig-core/#sec-HMACOutputLength" target="_top">&lt;dsig:HMACOutputLength/&gt;</a> child for the HMAC transform
+node <code class="PARAMETER">node</code>.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16529"><span style="white-space: nowrap"><code class="PARAMETER">transformNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to <a href="http://www.w3.org/TR/xmldsig-core/#sec-Transform" target="_top">&lt;dsig:Transform/&gt;</a> node</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16535"><span style="white-space: nowrap"><code class="PARAMETER">bitsLen</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the required length in bits</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16540"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> 0 on success and a negatie value otherwise.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLTRANSFORMADDRSAOAEPPARAM"></a><h3>xmlSecTmplTransformAddRsaOaepParam ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="INT"><span class="RETURNVALUE">int</span></gtkdoclink>                 xmlSecTmplTransformAddRsaOaepParam  (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> transformNode</code>,
+                                                         <code class="PARAMETER">const <a href="xmlsec-xmlsec.html#XMLSECBYTE"><span class="TYPE">xmlSecByte</span></a> *buf</code>,
+                                                         <code class="PARAMETER"><a href="xmlsec-xmlsec.html#XMLSECSIZE"><span class="TYPE">xmlSecSize</span></a> size</code>);</pre>
+<p>Creates <a href="http://www.w3.org/TR/xmlenc-core/#sec-OAEPParam" target="_top">&lt;enc:OAEPParam/&gt;</a> child node in the <code class="PARAMETER">node</code>.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16565"><span style="white-space: nowrap"><code class="PARAMETER">transformNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to <a href="http://www.w3.org/TR/xmldsig-core/#sec-Transform" target="_top">&lt;dsig:Transform/&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16571"><span style="white-space: nowrap"><code class="PARAMETER">buf</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the OAEP param buffer.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16576"><span style="white-space: nowrap"><code class="PARAMETER">size</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the OAEP param buffer size.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16581"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> 0 on success or a negative value if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLTRANSFORMADDXSLTSTYLESHEET"></a><h3>xmlSecTmplTransformAddXsltStylesheet ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="INT"><span class="RETURNVALUE">int</span></gtkdoclink>                 xmlSecTmplTransformAddXsltStylesheet
+                                                        (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> transformNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *xslt</code>);</pre>
+<p>Writes the XSLT transform expression to the <code class="PARAMETER">node</code>.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16602"><span style="white-space: nowrap"><code class="PARAMETER">transformNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to <a href="http://www.w3.org/TR/xmldsig-core/#sec-Transform" target="_top">&lt;dsig:Transform/&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16608"><span style="white-space: nowrap"><code class="PARAMETER">xslt</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the XSLT transform exspression.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16613"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> 0 on success or a negative value otherwise.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLTRANSFORMADDC14NINCLNAMESPACES"></a><h3>xmlSecTmplTransformAddC14NInclNamespaces ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="INT"><span class="RETURNVALUE">int</span></gtkdoclink>                 xmlSecTmplTransformAddC14NInclNamespaces
+                                                        (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> transformNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *prefixList</code>);</pre>
+<p>Adds "inclusive" namespaces to the ExcC14N transform node <code class="PARAMETER">node</code>.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16634"><span style="white-space: nowrap"><code class="PARAMETER">transformNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to <a href="http://www.w3.org/TR/xmldsig-core/#sec-Transform" target="_top">&lt;dsig:Transform/&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16640"><span style="white-space: nowrap"><code class="PARAMETER">prefixList</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the white space delimited  list of namespace prefixes,
+                     where "<gtkdoclink href="DEFAULT"><span class="TYPE">default</span></gtkdoclink>" indicates the default namespace
+                     (optional).</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16647"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> 0 if success or a negative value otherwise.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLTRANSFORMADDXPATH"></a><h3>xmlSecTmplTransformAddXPath ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="INT"><span class="RETURNVALUE">int</span></gtkdoclink>                 xmlSecTmplTransformAddXPath         (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> transformNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *expression</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> **nsList</code>);</pre>
+<p>Writes XPath transform infromation to the <a href="http://www.w3.org/TR/xmldsig-core/#sec-Transform" target="_top">&lt;dsig:Transform/&gt;</a> node
+<code class="PARAMETER">node</code>.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16672"><span style="white-space: nowrap"><code class="PARAMETER">transformNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to the <a href="http://www.w3.org/TR/xmldsig-core/#sec-Transform" target="_top">&lt;dsig:Transform/&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16678"><span style="white-space: nowrap"><code class="PARAMETER">expression</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the XPath expression.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16683"><span style="white-space: nowrap"><code class="PARAMETER">nsList</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the NULL terminated list of namespace prefix/href pairs
+                     (optional).</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16688"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> 0 for success or a negative value otherwise.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLTRANSFORMADDXPATH2"></a><h3>xmlSecTmplTransformAddXPath2 ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="INT"><span class="RETURNVALUE">int</span></gtkdoclink>                 xmlSecTmplTransformAddXPath2        (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> transformNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *type</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *expression</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> **nsList</code>);</pre>
+<p>Writes XPath2 transform infromation to the <a href="http://www.w3.org/TR/xmldsig-core/#sec-Transform" target="_top">&lt;dsig:Transform/&gt;</a> node
+<code class="PARAMETER">node</code>.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16716"><span style="white-space: nowrap"><code class="PARAMETER">transformNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to the <a href="http://www.w3.org/TR/xmldsig-core/#sec-Transform" target="_top">&lt;dsig:Transform/&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16722"><span style="white-space: nowrap"><code class="PARAMETER">type</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the XPath2 transform type ("union", "intersect" or "subtract").</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16727"><span style="white-space: nowrap"><code class="PARAMETER">expression</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the XPath expression.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16732"><span style="white-space: nowrap"><code class="PARAMETER">nsList</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the NULL terminated list of namespace prefix/href pairs.
+                     (optional).</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16737"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> 0 for success or a negative value otherwise.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECTMPLTRANSFORMADDXPOINTER"></a><h3>xmlSecTmplTransformAddXPointer ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="INT"><span class="RETURNVALUE">int</span></gtkdoclink>                 xmlSecTmplTransformAddXPointer      (<code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> transformNode</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> *expression</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="XMLCHAR"><span class="TYPE">xmlChar</span></gtkdoclink> **nsList</code>);</pre>
+<p>Writes XPoniter transform infromation to the <a href="http://www.w3.org/TR/xmldsig-core/#sec-Transform" target="_top">&lt;dsig:Transform/&gt;</a> node
+<code class="PARAMETER">node</code>.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16762"><span style="white-space: nowrap"><code class="PARAMETER">transformNode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to the <a href="http://www.w3.org/TR/xmldsig-core/#sec-Transform" target="_top">&lt;dsig:Transform/&gt;</a> node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16768"><span style="white-space: nowrap"><code class="PARAMETER">expression</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the XPath expression.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16773"><span style="white-space: nowrap"><code class="PARAMETER">nsList</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the NULL terminated list of namespace prefix/href pairs.
+                     (optional).</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN16778"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> 0 for success or a negative value otherwise.</p></td>
+</tr>
+</tbody></table>
+</div>
+</div>
+<table class="navigation" width="100%" summary="Navigation footer" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td align="left"><a accesskey="p" href="xmlsec-parser.html"><b>&lt;&lt;&lt; parser</b></a></td>
+<td align="right"><a accesskey="n" href="xmlsec-transforms.html"><b>transforms &gt;&gt;&gt;</b></a></td>
+</tr></table>
+</td></tr></table></td>
+</tr></table></body>
+</html>

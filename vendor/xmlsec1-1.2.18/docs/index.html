@@ -1,0 +1,109 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>XML Security Library</title>
+</head>
+<body><table witdh="100%" valign="top"><tr valign="top">
+<td valign="top" align="left" width="210">
+<img src="images/logo.gif" alt="XML Security Library" border="0"><p></p>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="download.html">Download</a></li>
+<li><a href="news.html">News</a></li>
+<li><a href="documentation.html">Documentation</a></li>
+<ul>
+<li><a href="faq.html">FAQ</a></li>
+<li><a href="api/xmlsec-notes.html">Tutorial</a></li>
+<li><a href="api/xmlsec-reference.html">API reference</a></li>
+<li><a href="api/xmlsec-examples.html">Examples</a></li>
+</ul>
+<li><a href="xmldsig.html">XML Digital Signature</a></li>
+<ul><li><a href="http://www.aleksey.com/xmlsec/xmldsig-verifier.html">Online Verifier</a></li></ul>
+<li><a href="xmlenc.html">XML Encryption</a></li>
+<li><a href="c14n.html">XML Canonicalization</a></li>
+<li><a href="bugs.html">Reporting Bugs</a></li>
+<li><a href="http://www.aleksey.com/pipermail/xmlsec">Mailing list</a></li>
+<li><a href="related.html">Related</a></li>
+<li><a href="authors.html">Authors</a></li>
+</ul>
+<table width="100%">
+<tr>
+<td width="15"></td>
+<td><a href="http://xmlsoft.org/"><img src="images/libxml2-logo.png" alt="LibXML2" border="0"></a></td>
+</tr>
+<tr>
+<td width="15"></td>
+<td><a href="http://xmlsoft.org/XSLT"><img src="images/libxslt-logo.png" alt="LibXSLT" border="0"></a></td>
+</tr>
+<tr>
+<td width="15"></td>
+<td><a href="http://www.openssl.org/"><img src="images/openssl-logo.png" alt="OpenSSL" border="0"></a></td>
+</tr>
+<!--Links - start--><!--Links - end-->
+</table>
+</td>
+<td valign="top"><table width="100%" valign="top"><tr><td valign="top" align="left" id="xmlsecContent">
+<div align="center">
+<h1>XML Security Library</h1>
+</div>
+<p>
+XML Security Library is a C library based on <a href="http://xmlsoft.org/">LibXML2</a>.
+The library  supports major XML security standards:
+</p>
+<ul>
+<li><a href="http://www.w3.org/TR/xmldsig-core">XML Signature</a></li>
+<li><a href="http://www.w3.org/TR/xmlenc-core/">XML Encryption</a></li>
+<li>
+<a href="http://www.w3.org/TR/xml-c14n">Canonical XML</a> (part of the
+<a href="http://xmlsoft.org">LibXML2</a>)</li>
+<li>
+<a href="http://www.w3.org/TR/xml-exc-c14n">Exclusive Canonical XML</a>
+(part of the <a href="http://xmlsoft.org">LibXML2</a>)</li>
+</ul>
+<p>
+XML Security Library is released under the
+<a href="http://www.opensource.org/licenses/mit-license.html">MIT  Licence</a>
+see the Copyright file in the distribution  for details.<br><br></p>
+<p><b>News</b></p>
+<ul>
+<li>May 11 2011<br>
+        The <a href="download.html">XML Security Library 1.2.18</a> release fixes
+        a serious crasher. All users are advised to upgraded as soon as possible.
+</li>
+<li>March 31 2011<br>
+        Changes in <a href="download.html">XML Security Library 1.2.17</a> release:
+        <ul>
+<li>Fixed security issue with libxslt (CVE-2011-1425, reported by Nicolas Gregoire).</li>
+        <li>Fixed a number of build configuration problems, pkcs12 file loading, and gcrypt init/shutdown.</li>
+        </ul>
+</li>
+<li>May 26  2010<br>
+	Changes in <a href="download.html">XML Security Library 1.2.16</a> release:
+	<ul>
+<li>New xmlsec-gcrypt library.</li>
+	<li>xmlsec-gcrypt: Added RSA with SHA1/SHA256/SHA384/SHA512/MD5/RIPEMD160,
+	DSA with SHA1, AES/DES KW support.</li>
+	<li>xmlsec-gnutls: Added X509 support and converted the library to use
+	xmlsec-gcrypt library for all crypto operations.</li>
+	xmlsec-mscrypto: RSA/OAEP and AES/DES KW support.</ul>
+</li>
+	<li>Several minor bug fixes and code cleanups.</li>
+	</ul>
+<li>April 29 2010<br>
+	Changes in <a href="download.html">XML Security Library 1.2.15</a> release:
+	<ul>
+<li>xmlsec-mscrypto: Added HMAC with MD5, SHA1, SHA256/384/512;
+	RSA with MD5, SHA256/384/512 support.</li>
+	<li>xmlsec-mscrypto: Converted to Unicode (the non-Unicode builds are still available as compile time option).</li>
+	<li>xmlsec-nss: Added MD5 and SHA256/384/512 support for digest, HMAC 
+	and RSA (the new minimum required version for NSS library is 3.9).</li>
+	<li>xmlsec-gnutls: Added SHA256/384/512 for digest and HMAC;
+	MD5 and RIPEMD160 digests support (the new minimum required version for
+	GnuTLS library is 2.8.0).</li>
+	<li>Fixed typo: "Copyrigth" should be "Copyright".</li>
+	<li>Several critical bug fixes and code cleanups.</li>
+	</ul>
+</li>
+</td></tr></table></td>
+</tr></table></body>
+</html>

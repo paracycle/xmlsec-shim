@@ -1,0 +1,603 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>buffer</title>
+<meta name="GENERATOR" content="Modular DocBook HTML Stylesheet Version 1.79">
+<link rel="HOME" title="XML Security Library Reference Manual" href="index.html">
+<link rel="UP" title="XML Security Core Library API Reference." href="xmlsec-ref.html">
+<link rel="PREVIOUS" title="bn" href="xmlsec-bn.html">
+<link rel="NEXT" title="dl" href="xmlsec-dl.html">
+<style type="text/css">.synopsis, .classsynopsis {
+    background: #eeeeee;
+    border: solid 1px #aaaaaa;
+    padding: 0.5em;
+}
+.programlisting {
+    background: #eeeeff;
+    border: solid 1px #aaaaff;
+    padding: 0.5em;
+}
+.variablelist {
+    padding: 4px;
+    margin-left: 3em;
+}
+.navigation {
+    background: #ffeeee;
+    border: solid 1px #ffaaaa;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+.navigation a {
+    color: #770000;
+}
+.navigation a:visited {
+    color: #550000;
+}
+.navigation .title {
+    font-size: 200%;
+}</style>
+</head>
+<body><table witdh="100%" valign="top"><tr valign="top">
+<td valign="top" align="left" width="210">
+<img src="../images/logo.gif" alt="XML Security Library" border="0"><p></p>
+<ul>
+<li><a href="../index.html">Home</a></li>
+<li><a href="../download.html">Download</a></li>
+<li><a href="../news.html">News</a></li>
+<li><a href="../documentation.html">Documentation</a></li>
+<ul>
+<li><a href="../faq.html">FAQ</a></li>
+<li><a href="../api/xmlsec-notes.html">Tutorial</a></li>
+<li><a href="../api/xmlsec-reference.html">API reference</a></li>
+<li><a href="../api/xmlsec-examples.html">Examples</a></li>
+</ul>
+<li><a href="../xmldsig.html">XML Digital Signature</a></li>
+<ul><li><a href="http://www.aleksey.com/xmlsec/xmldsig-verifier.html">Online Verifier</a></li></ul>
+<li><a href="../xmlenc.html">XML Encryption</a></li>
+<li><a href="../c14n.html">XML Canonicalization</a></li>
+<li><a href="../bugs.html">Reporting Bugs</a></li>
+<li><a href="http://www.aleksey.com/pipermail/xmlsec">Mailing list</a></li>
+<li><a href="../related.html">Related</a></li>
+<li><a href="../authors.html">Authors</a></li>
+</ul>
+<table width="100%">
+<tr>
+<td width="15"></td>
+<td><a href="http://xmlsoft.org/"><img src="../images/libxml2-logo.png" alt="LibXML2" border="0"></a></td>
+</tr>
+<tr>
+<td width="15"></td>
+<td><a href="http://xmlsoft.org/XSLT"><img src="../images/libxslt-logo.png" alt="LibXSLT" border="0"></a></td>
+</tr>
+<tr>
+<td width="15"></td>
+<td><a href="http://www.openssl.org/"><img src="../images/openssl-logo.png" alt="OpenSSL" border="0"></a></td>
+</tr>
+<!--Links - start--><!--Links - end-->
+</table>
+</td>
+<td valign="top"><table width="100%" valign="top"><tr><td valign="top" align="left" id="xmlsecContent">
+<table width="100%" class="navigation" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="xmlsec-bn.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="xmlsec-ref.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">XML Security Library Reference Manual</th>
+<td><a accesskey="n" href="xmlsec-dl.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<h1>
+<a name="XMLSEC-BUFFER"></a>buffer</h1>
+<div class="REFNAMEDIV">
+<a name="AEN4369"></a><h2>Name</h2>buffer -- Binary buffer implementation.</div>
+<div class="REFSYNOPSISDIV">
+<a name="XMLSEC-BUFFER.SYNOPSIS"></a><h2>Synopsis</h2>
+<pre class="SYNOPSIS">enum                <a href="xmlsec-buffer.html#XMLSECALLOCMODE">xmlSecAllocMode</a>;
+struct              <a href="xmlsec-buffer.html#XMLSECBUFFER">xmlSecBuffer</a>;
+<gtkdoclink href="VOID"><span class="RETURNVALUE">void</span></gtkdoclink><a href="xmlsec-buffer.html#XMLSECBUFFERSETDEFAULTALLOCMODE">xmlSecBufferSetDefaultAllocMode</a>     (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECALLOCMODE"><span class="TYPE">xmlSecAllocMode</span></a> defAllocMode</code>,
+                                                         <code class="PARAMETER"><a href="xmlsec-xmlsec.html#XMLSECSIZE"><span class="TYPE">xmlSecSize</span></a> defInitialSize</code>);
+<a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="RETURNVALUE">xmlSecBufferPtr</span></a>     <a href="xmlsec-buffer.html#XMLSECBUFFERCREATE">xmlSecBufferCreate</a>                  (<code class="PARAMETER"><a href="xmlsec-xmlsec.html#XMLSECSIZE"><span class="TYPE">xmlSecSize</span></a> size</code>);
+<gtkdoclink href="VOID"><span class="RETURNVALUE">void</span></gtkdoclink><a href="xmlsec-buffer.html#XMLSECBUFFERDESTROY">xmlSecBufferDestroy</a>                 (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="TYPE">xmlSecBufferPtr</span></a> buf</code>);
+<gtkdoclink href="INT"><span class="RETURNVALUE">int</span></gtkdoclink><a href="xmlsec-buffer.html#XMLSECBUFFERINITIALIZE">xmlSecBufferInitialize</a>              (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="TYPE">xmlSecBufferPtr</span></a> buf</code>,
+                                                         <code class="PARAMETER"><a href="xmlsec-xmlsec.html#XMLSECSIZE"><span class="TYPE">xmlSecSize</span></a> size</code>);
+<gtkdoclink href="VOID"><span class="RETURNVALUE">void</span></gtkdoclink><a href="xmlsec-buffer.html#XMLSECBUFFERFINALIZE">xmlSecBufferFinalize</a>                (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="TYPE">xmlSecBufferPtr</span></a> buf</code>);
+<a href="xmlsec-xmlsec.html#XMLSECBYTE"><span class="RETURNVALUE">xmlSecByte</span></a>*         <a href="xmlsec-buffer.html#XMLSECBUFFERGETDATA">xmlSecBufferGetData</a>                 (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="TYPE">xmlSecBufferPtr</span></a> buf</code>);
+<gtkdoclink href="INT"><span class="RETURNVALUE">int</span></gtkdoclink><a href="xmlsec-buffer.html#XMLSECBUFFERSETDATA">xmlSecBufferSetData</a>                 (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="TYPE">xmlSecBufferPtr</span></a> buf</code>,
+                                                         <code class="PARAMETER">const <a href="xmlsec-xmlsec.html#XMLSECBYTE"><span class="TYPE">xmlSecByte</span></a> *data</code>,
+                                                         <code class="PARAMETER"><a href="xmlsec-xmlsec.html#XMLSECSIZE"><span class="TYPE">xmlSecSize</span></a> size</code>);
+<a href="xmlsec-xmlsec.html#XMLSECSIZE"><span class="RETURNVALUE">xmlSecSize</span></a>          <a href="xmlsec-buffer.html#XMLSECBUFFERGETSIZE">xmlSecBufferGetSize</a>                 (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="TYPE">xmlSecBufferPtr</span></a> buf</code>);
+<gtkdoclink href="INT"><span class="RETURNVALUE">int</span></gtkdoclink><a href="xmlsec-buffer.html#XMLSECBUFFERSETSIZE">xmlSecBufferSetSize</a>                 (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="TYPE">xmlSecBufferPtr</span></a> buf</code>,
+                                                         <code class="PARAMETER"><a href="xmlsec-xmlsec.html#XMLSECSIZE"><span class="TYPE">xmlSecSize</span></a> size</code>);
+<a href="xmlsec-xmlsec.html#XMLSECSIZE"><span class="RETURNVALUE">xmlSecSize</span></a>          <a href="xmlsec-buffer.html#XMLSECBUFFERGETMAXSIZE">xmlSecBufferGetMaxSize</a>              (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="TYPE">xmlSecBufferPtr</span></a> buf</code>);
+<gtkdoclink href="INT"><span class="RETURNVALUE">int</span></gtkdoclink><a href="xmlsec-buffer.html#XMLSECBUFFERSETMAXSIZE">xmlSecBufferSetMaxSize</a>              (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="TYPE">xmlSecBufferPtr</span></a> buf</code>,
+                                                         <code class="PARAMETER"><a href="xmlsec-xmlsec.html#XMLSECSIZE"><span class="TYPE">xmlSecSize</span></a> size</code>);
+<gtkdoclink href="VOID"><span class="RETURNVALUE">void</span></gtkdoclink><a href="xmlsec-buffer.html#XMLSECBUFFEREMPTY">xmlSecBufferEmpty</a>                   (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="TYPE">xmlSecBufferPtr</span></a> buf</code>);
+<gtkdoclink href="INT"><span class="RETURNVALUE">int</span></gtkdoclink><a href="xmlsec-buffer.html#XMLSECBUFFERAPPEND">xmlSecBufferAppend</a>                  (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="TYPE">xmlSecBufferPtr</span></a> buf</code>,
+                                                         <code class="PARAMETER">const <a href="xmlsec-xmlsec.html#XMLSECBYTE"><span class="TYPE">xmlSecByte</span></a> *data</code>,
+                                                         <code class="PARAMETER"><a href="xmlsec-xmlsec.html#XMLSECSIZE"><span class="TYPE">xmlSecSize</span></a> size</code>);
+<gtkdoclink href="INT"><span class="RETURNVALUE">int</span></gtkdoclink><a href="xmlsec-buffer.html#XMLSECBUFFERPREPEND">xmlSecBufferPrepend</a>                 (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="TYPE">xmlSecBufferPtr</span></a> buf</code>,
+                                                         <code class="PARAMETER">const <a href="xmlsec-xmlsec.html#XMLSECBYTE"><span class="TYPE">xmlSecByte</span></a> *data</code>,
+                                                         <code class="PARAMETER"><a href="xmlsec-xmlsec.html#XMLSECSIZE"><span class="TYPE">xmlSecSize</span></a> size</code>);
+<gtkdoclink href="INT"><span class="RETURNVALUE">int</span></gtkdoclink><a href="xmlsec-buffer.html#XMLSECBUFFERREMOVEHEAD">xmlSecBufferRemoveHead</a>              (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="TYPE">xmlSecBufferPtr</span></a> buf</code>,
+                                                         <code class="PARAMETER"><a href="xmlsec-xmlsec.html#XMLSECSIZE"><span class="TYPE">xmlSecSize</span></a> size</code>);
+<gtkdoclink href="INT"><span class="RETURNVALUE">int</span></gtkdoclink><a href="xmlsec-buffer.html#XMLSECBUFFERREMOVETAIL">xmlSecBufferRemoveTail</a>              (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="TYPE">xmlSecBufferPtr</span></a> buf</code>,
+                                                         <code class="PARAMETER"><a href="xmlsec-xmlsec.html#XMLSECSIZE"><span class="TYPE">xmlSecSize</span></a> size</code>);
+<gtkdoclink href="INT"><span class="RETURNVALUE">int</span></gtkdoclink><a href="xmlsec-buffer.html#XMLSECBUFFERREADFILE">xmlSecBufferReadFile</a>                (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="TYPE">xmlSecBufferPtr</span></a> buf</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="CHAR"><span class="TYPE">char</span></gtkdoclink> *filename</code>);
+<gtkdoclink href="INT"><span class="RETURNVALUE">int</span></gtkdoclink><a href="xmlsec-buffer.html#XMLSECBUFFERBASE64NODECONTENTREAD">xmlSecBufferBase64NodeContentRead</a>   (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="TYPE">xmlSecBufferPtr</span></a> buf</code>,
+                                                         <code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> node</code>);
+<gtkdoclink href="INT"><span class="RETURNVALUE">int</span></gtkdoclink><a href="xmlsec-buffer.html#XMLSECBUFFERBASE64NODECONTENTWRITE">xmlSecBufferBase64NodeContentWrite</a>  (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="TYPE">xmlSecBufferPtr</span></a> buf</code>,
+                                                         <code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> node</code>,
+                                                         <code class="PARAMETER"><gtkdoclink href="INT"><span class="TYPE">int</span></gtkdoclink> columns</code>);
+<gtkdoclink href="XMLOUTPUTBUFFERPTR"><span class="RETURNVALUE">xmlOutputBufferPtr</span></gtkdoclink><a href="xmlsec-buffer.html#XMLSECBUFFERCREATEOUTPUTBUFFER">xmlSecBufferCreateOutputBuffer</a>      (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="TYPE">xmlSecBufferPtr</span></a> buf</code>);</pre>
+</div>
+<div class="REFSECT1">
+<a name="XMLSEC-BUFFER.DESCRIPTION"></a><h2>Description</h2>
+<p>Binary buffer implementation.</p>
+</div>
+<div class="REFSECT1">
+<a name="XMLSEC-BUFFER.DETAILS"></a><h2>Details</h2>
+<div class="REFSECT2">
+<a name="XMLSECALLOCMODE"></a><h3>enum xmlSecAllocMode</h3>
+<pre class="PROGRAMLISTING">typedef enum {
+    xmlSecAllocModeExact = 0,
+    xmlSecAllocModeDouble
+} xmlSecAllocMode;</pre>
+<p>The memory allocation mode (used by <code class="PARAMETER">xmlSecBuffer</code> and <code class="PARAMETER">xmlSecList</code>).</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="XMLSECALLOCMODEEXACT"><span style="white-space: nowrap"><tt class="LITERAL">xmlSecAllocModeExact</tt></span></a></td>
+<td align="LEFT" valign="TOP"><p>the memory allocation mode that minimizes total
+                             allocated memory size.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="XMLSECALLOCMODEDOUBLE"><span style="white-space: nowrap"><tt class="LITERAL">xmlSecAllocModeDouble</tt></span></a></td>
+<td align="LEFT" valign="TOP"><p>the memory allocation mode that tries to minimize
+                             the number of malloc calls.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECBUFFER"></a><h3>struct xmlSecBuffer</h3>
+<pre class="PROGRAMLISTING">struct xmlSecBuffer {
+    xmlSecByte*         data;
+    xmlSecSize          size;
+    xmlSecSize          maxSize;
+    xmlSecAllocMode     allocMode;
+};</pre>
+<p>Binary data buffer.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN4576"><span style="white-space: nowrap"><a href="xmlsec-xmlsec.html#XMLSECBYTE"><span class="TYPE">xmlSecByte</span></a> *<code class="STRUCTFIELD">data</code>;</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to buffer data.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN4583"><span style="white-space: nowrap"><a href="xmlsec-xmlsec.html#XMLSECSIZE"><span class="TYPE">xmlSecSize</span></a> <code class="STRUCTFIELD">size</code>;</span></a></td>
+<td align="LEFT" valign="TOP"><p>the current data size.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN4590"><span style="white-space: nowrap"><a href="xmlsec-xmlsec.html#XMLSECSIZE"><span class="TYPE">xmlSecSize</span></a> <code class="STRUCTFIELD">maxSize</code>;</span></a></td>
+<td align="LEFT" valign="TOP"><p>the max data size (allocated buffer size).</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN4597"><span style="white-space: nowrap"><a href="xmlsec-buffer.html#XMLSECALLOCMODE"><span class="TYPE">xmlSecAllocMode</span></a> <code class="STRUCTFIELD">allocMode</code>;</span></a></td>
+<td align="LEFT" valign="TOP"><p>the buffer memory allocation mode.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECBUFFERSETDEFAULTALLOCMODE"></a><h3>xmlSecBufferSetDefaultAllocMode ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="VOID"><span class="RETURNVALUE">void</span></gtkdoclink>                xmlSecBufferSetDefaultAllocMode     (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECALLOCMODE"><span class="TYPE">xmlSecAllocMode</span></a> defAllocMode</code>,
+                                                         <code class="PARAMETER"><a href="xmlsec-xmlsec.html#XMLSECSIZE"><span class="TYPE">xmlSecSize</span></a> defInitialSize</code>);</pre>
+<p>Sets new global default allocation mode and minimal intial size.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN4619"><span style="white-space: nowrap"><code class="PARAMETER">defAllocMode</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the new default buffer allocation mode.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN4624"><span style="white-space: nowrap"><code class="PARAMETER">defInitialSize</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the new default buffer minimal intial size.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECBUFFERCREATE"></a><h3>xmlSecBufferCreate ()</h3>
+<pre class="PROGRAMLISTING"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="RETURNVALUE">xmlSecBufferPtr</span></a>     xmlSecBufferCreate                  (<code class="PARAMETER"><a href="xmlsec-xmlsec.html#XMLSECSIZE"><span class="TYPE">xmlSecSize</span></a> size</code>);</pre>
+<p>Allocates and initalizes new memory buffer with given size.
+Caller is responsible for calling <a href="xmlsec-buffer.html#XMLSECBUFFERDESTROY"><span class="TYPE">xmlSecBufferDestroy</span></a> function
+to free the buffer.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN4643"><span style="white-space: nowrap"><code class="PARAMETER">size</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the intial size.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN4648"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> pointer to newly allocated buffer or NULL if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECBUFFERDESTROY"></a><h3>xmlSecBufferDestroy ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="VOID"><span class="RETURNVALUE">void</span></gtkdoclink>                xmlSecBufferDestroy                 (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="TYPE">xmlSecBufferPtr</span></a> buf</code>);</pre>
+<p>Desrtoys buffer object created with <a href="xmlsec-buffer.html#XMLSECBUFFERCREATE"><span class="TYPE">xmlSecBufferCreate</span></a> function.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody><tr>
+<td align="LEFT" valign="TOP"><a name="AEN4667"><span style="white-space: nowrap"><code class="PARAMETER">buf</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to buffer object.</p></td>
+</tr></tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECBUFFERINITIALIZE"></a><h3>xmlSecBufferInitialize ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="INT"><span class="RETURNVALUE">int</span></gtkdoclink>                 xmlSecBufferInitialize              (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="TYPE">xmlSecBufferPtr</span></a> buf</code>,
+                                                         <code class="PARAMETER"><a href="xmlsec-xmlsec.html#XMLSECSIZE"><span class="TYPE">xmlSecSize</span></a> size</code>);</pre>
+<p>Initializes buffer object <code class="PARAMETER">buf</code>. Caller is responsible for calling
+<a href="xmlsec-buffer.html#XMLSECBUFFERFINALIZE"><span class="TYPE">xmlSecBufferFinalize</span></a> function to free allocated resources.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN4690"><span style="white-space: nowrap"><code class="PARAMETER">buf</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to buffer object.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN4695"><span style="white-space: nowrap"><code class="PARAMETER">size</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the initial buffer size.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN4700"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> 0 on success or a negative value if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECBUFFERFINALIZE"></a><h3>xmlSecBufferFinalize ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="VOID"><span class="RETURNVALUE">void</span></gtkdoclink>                xmlSecBufferFinalize                (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="TYPE">xmlSecBufferPtr</span></a> buf</code>);</pre>
+<p>Frees allocated resource for a buffer intialized with <a href="xmlsec-buffer.html#XMLSECBUFFERINITIALIZE"><span class="TYPE">xmlSecBufferInitialize</span></a>
+function.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody><tr>
+<td align="LEFT" valign="TOP"><a name="AEN4719"><span style="white-space: nowrap"><code class="PARAMETER">buf</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to buffer object.</p></td>
+</tr></tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECBUFFERGETDATA"></a><h3>xmlSecBufferGetData ()</h3>
+<pre class="PROGRAMLISTING"><a href="xmlsec-xmlsec.html#XMLSECBYTE"><span class="RETURNVALUE">xmlSecByte</span></a>*         xmlSecBufferGetData                 (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="TYPE">xmlSecBufferPtr</span></a> buf</code>);</pre>
+<p>Gets pointer to buffer's data.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN4736"><span style="white-space: nowrap"><code class="PARAMETER">buf</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to buffer object.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN4741"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> pointer to buffer's data.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECBUFFERSETDATA"></a><h3>xmlSecBufferSetData ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="INT"><span class="RETURNVALUE">int</span></gtkdoclink>                 xmlSecBufferSetData                 (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="TYPE">xmlSecBufferPtr</span></a> buf</code>,
+                                                         <code class="PARAMETER">const <a href="xmlsec-xmlsec.html#XMLSECBYTE"><span class="TYPE">xmlSecByte</span></a> *data</code>,
+                                                         <code class="PARAMETER"><a href="xmlsec-xmlsec.html#XMLSECSIZE"><span class="TYPE">xmlSecSize</span></a> size</code>);</pre>
+<p>Sets the value of the buffer to <code class="PARAMETER">data</code>.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN4765"><span style="white-space: nowrap"><code class="PARAMETER">buf</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to buffer object.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN4770"><span style="white-space: nowrap"><code class="PARAMETER">data</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the data.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN4775"><span style="white-space: nowrap"><code class="PARAMETER">size</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the data size.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN4780"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> 0 on success or a negative value if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECBUFFERGETSIZE"></a><h3>xmlSecBufferGetSize ()</h3>
+<pre class="PROGRAMLISTING"><a href="xmlsec-xmlsec.html#XMLSECSIZE"><span class="RETURNVALUE">xmlSecSize</span></a>          xmlSecBufferGetSize                 (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="TYPE">xmlSecBufferPtr</span></a> buf</code>);</pre>
+<p>Gets the current buffer data size.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN4797"><span style="white-space: nowrap"><code class="PARAMETER">buf</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to buffer object.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN4802"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> the current data size.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECBUFFERSETSIZE"></a><h3>xmlSecBufferSetSize ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="INT"><span class="RETURNVALUE">int</span></gtkdoclink>                 xmlSecBufferSetSize                 (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="TYPE">xmlSecBufferPtr</span></a> buf</code>,
+                                                         <code class="PARAMETER"><a href="xmlsec-xmlsec.html#XMLSECSIZE"><span class="TYPE">xmlSecSize</span></a> size</code>);</pre>
+<p>Sets new buffer data size. If necessary, buffer grows to
+have at least <code class="PARAMETER">size</code> bytes.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN4823"><span style="white-space: nowrap"><code class="PARAMETER">buf</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to buffer object.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN4828"><span style="white-space: nowrap"><code class="PARAMETER">size</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the new data size.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN4833"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> 0 on success or a negative value if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECBUFFERGETMAXSIZE"></a><h3>xmlSecBufferGetMaxSize ()</h3>
+<pre class="PROGRAMLISTING"><a href="xmlsec-xmlsec.html#XMLSECSIZE"><span class="RETURNVALUE">xmlSecSize</span></a>          xmlSecBufferGetMaxSize              (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="TYPE">xmlSecBufferPtr</span></a> buf</code>);</pre>
+<p>Gets the maximum (allocated) buffer size.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN4850"><span style="white-space: nowrap"><code class="PARAMETER">buf</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to buffer object.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN4855"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> the maximum (allocated) buffer size.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECBUFFERSETMAXSIZE"></a><h3>xmlSecBufferSetMaxSize ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="INT"><span class="RETURNVALUE">int</span></gtkdoclink>                 xmlSecBufferSetMaxSize              (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="TYPE">xmlSecBufferPtr</span></a> buf</code>,
+                                                         <code class="PARAMETER"><a href="xmlsec-xmlsec.html#XMLSECSIZE"><span class="TYPE">xmlSecSize</span></a> size</code>);</pre>
+<p>Sets new buffer maximum size. If necessary, buffer grows to
+have at least <code class="PARAMETER">size</code> bytes.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN4876"><span style="white-space: nowrap"><code class="PARAMETER">buf</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to buffer object.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN4881"><span style="white-space: nowrap"><code class="PARAMETER">size</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the new maximum size.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN4886"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> 0 on success or a negative value if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECBUFFEREMPTY"></a><h3>xmlSecBufferEmpty ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="VOID"><span class="RETURNVALUE">void</span></gtkdoclink>                xmlSecBufferEmpty                   (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="TYPE">xmlSecBufferPtr</span></a> buf</code>);</pre>
+<p>Empties the buffer.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody><tr>
+<td align="LEFT" valign="TOP"><a name="AEN4903"><span style="white-space: nowrap"><code class="PARAMETER">buf</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to buffer object.</p></td>
+</tr></tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECBUFFERAPPEND"></a><h3>xmlSecBufferAppend ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="INT"><span class="RETURNVALUE">int</span></gtkdoclink>                 xmlSecBufferAppend                  (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="TYPE">xmlSecBufferPtr</span></a> buf</code>,
+                                                         <code class="PARAMETER">const <a href="xmlsec-xmlsec.html#XMLSECBYTE"><span class="TYPE">xmlSecByte</span></a> *data</code>,
+                                                         <code class="PARAMETER"><a href="xmlsec-xmlsec.html#XMLSECSIZE"><span class="TYPE">xmlSecSize</span></a> size</code>);</pre>
+<p>Appends the <code class="PARAMETER">data</code> after the current data stored in the buffer.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN4927"><span style="white-space: nowrap"><code class="PARAMETER">buf</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to buffer object.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN4932"><span style="white-space: nowrap"><code class="PARAMETER">data</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the data.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN4937"><span style="white-space: nowrap"><code class="PARAMETER">size</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the data size.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN4942"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> 0 on success or a negative value if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECBUFFERPREPEND"></a><h3>xmlSecBufferPrepend ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="INT"><span class="RETURNVALUE">int</span></gtkdoclink>                 xmlSecBufferPrepend                 (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="TYPE">xmlSecBufferPtr</span></a> buf</code>,
+                                                         <code class="PARAMETER">const <a href="xmlsec-xmlsec.html#XMLSECBYTE"><span class="TYPE">xmlSecByte</span></a> *data</code>,
+                                                         <code class="PARAMETER"><a href="xmlsec-xmlsec.html#XMLSECSIZE"><span class="TYPE">xmlSecSize</span></a> size</code>);</pre>
+<p>Prepends the <code class="PARAMETER">data</code> before the current data stored in the buffer.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN4966"><span style="white-space: nowrap"><code class="PARAMETER">buf</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to buffer object.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN4971"><span style="white-space: nowrap"><code class="PARAMETER">data</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the data.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN4976"><span style="white-space: nowrap"><code class="PARAMETER">size</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the data size.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN4981"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> 0 on success or a negative value if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECBUFFERREMOVEHEAD"></a><h3>xmlSecBufferRemoveHead ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="INT"><span class="RETURNVALUE">int</span></gtkdoclink>                 xmlSecBufferRemoveHead              (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="TYPE">xmlSecBufferPtr</span></a> buf</code>,
+                                                         <code class="PARAMETER"><a href="xmlsec-xmlsec.html#XMLSECSIZE"><span class="TYPE">xmlSecSize</span></a> size</code>);</pre>
+<p>Removes <code class="PARAMETER">size</code> bytes from the beginning of the current buffer.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN5002"><span style="white-space: nowrap"><code class="PARAMETER">buf</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to buffer object.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN5007"><span style="white-space: nowrap"><code class="PARAMETER">size</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the number of bytes to be removed.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN5012"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> 0 on success or a negative value if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECBUFFERREMOVETAIL"></a><h3>xmlSecBufferRemoveTail ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="INT"><span class="RETURNVALUE">int</span></gtkdoclink>                 xmlSecBufferRemoveTail              (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="TYPE">xmlSecBufferPtr</span></a> buf</code>,
+                                                         <code class="PARAMETER"><a href="xmlsec-xmlsec.html#XMLSECSIZE"><span class="TYPE">xmlSecSize</span></a> size</code>);</pre>
+<p>Removes <code class="PARAMETER">size</code> bytes from the end of current buffer.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN5033"><span style="white-space: nowrap"><code class="PARAMETER">buf</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to buffer object.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN5038"><span style="white-space: nowrap"><code class="PARAMETER">size</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the number of bytes to be removed.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN5043"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> 0 on success or a negative value if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECBUFFERREADFILE"></a><h3>xmlSecBufferReadFile ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="INT"><span class="RETURNVALUE">int</span></gtkdoclink>                 xmlSecBufferReadFile                (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="TYPE">xmlSecBufferPtr</span></a> buf</code>,
+                                                         <code class="PARAMETER">const <gtkdoclink href="CHAR"><span class="TYPE">char</span></gtkdoclink> *filename</code>);</pre>
+<p>Reads the content of the file <code class="PARAMETER">filename</code> in the buffer.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN5064"><span style="white-space: nowrap"><code class="PARAMETER">buf</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to buffer object.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN5069"><span style="white-space: nowrap"><code class="PARAMETER">filename</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the filename.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN5074"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> 0 on success or a negative value if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECBUFFERBASE64NODECONTENTREAD"></a><h3>xmlSecBufferBase64NodeContentRead ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="INT"><span class="RETURNVALUE">int</span></gtkdoclink>                 xmlSecBufferBase64NodeContentRead   (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="TYPE">xmlSecBufferPtr</span></a> buf</code>,
+                                                         <code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> node</code>);</pre>
+<p>Reads the content of the <code class="PARAMETER">node</code>, base64 decodes it and stores the
+result in the buffer.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN5095"><span style="white-space: nowrap"><code class="PARAMETER">buf</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to buffer object.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN5100"><span style="white-space: nowrap"><code class="PARAMETER">node</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN5105"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> 0 on success or a negative value if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECBUFFERBASE64NODECONTENTWRITE"></a><h3>xmlSecBufferBase64NodeContentWrite ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="INT"><span class="RETURNVALUE">int</span></gtkdoclink>                 xmlSecBufferBase64NodeContentWrite  (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="TYPE">xmlSecBufferPtr</span></a> buf</code>,
+                                                         <code class="PARAMETER"><gtkdoclink href="XMLNODE"><span class="TYPE">xmlNodePtr</span></gtkdoclink> node</code>,
+                                                         <code class="PARAMETER"><gtkdoclink href="INT"><span class="TYPE">int</span></gtkdoclink> columns</code>);</pre>
+<p>Sets the content of the <code class="PARAMETER">node</code> to the base64 encoded buffer data.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN5129"><span style="white-space: nowrap"><code class="PARAMETER">buf</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to buffer object.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN5134"><span style="white-space: nowrap"><code class="PARAMETER">node</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to a node.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN5139"><span style="white-space: nowrap"><code class="PARAMETER">columns</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the max line size fro base64 encoded data.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN5144"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> 0 on success or a negative value if an error occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+<div class="REFSECT2">
+<a name="XMLSECBUFFERCREATEOUTPUTBUFFER"></a><h3>xmlSecBufferCreateOutputBuffer ()</h3>
+<pre class="PROGRAMLISTING"><gtkdoclink href="XMLOUTPUTBUFFERPTR"><span class="RETURNVALUE">xmlOutputBufferPtr</span></gtkdoclink>  xmlSecBufferCreateOutputBuffer      (<code class="PARAMETER"><a href="xmlsec-buffer.html#XMLSECBUFFER"><span class="TYPE">xmlSecBufferPtr</span></a> buf</code>);</pre>
+<p>Creates new LibXML output buffer to store data in the <code class="PARAMETER">buf</code>. Caller is
+responsible for destroying <code class="PARAMETER">buf</code> when processing is done.</p>
+<p></p>
+<table class="variablelist" border="0" cellspacing="0" cellpadding="4"><tbody>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN5163"><span style="white-space: nowrap"><code class="PARAMETER">buf</code> :</span></a></td>
+<td align="LEFT" valign="TOP"><p>the pointer to buffer.</p></td>
+</tr>
+<tr>
+<td align="LEFT" valign="TOP"><a name="AEN5168"><span style="white-space: nowrap"><span class="emphasis"><i class="EMPHASIS">Returns</i></span> :</span></a></td>
+<td align="LEFT" valign="TOP"><p> pointer to newly allocated output buffer or NULL if an error
+occurs.</p></td>
+</tr>
+</tbody></table>
+</div>
+</div>
+<table class="navigation" width="100%" summary="Navigation footer" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td align="left"><a accesskey="p" href="xmlsec-bn.html"><b>&lt;&lt;&lt; bn</b></a></td>
+<td align="right"><a accesskey="n" href="xmlsec-dl.html"><b>dl &gt;&gt;&gt;</b></a></td>
+</tr></table>
+</td></tr></table></td>
+</tr></table></body>
+</html>
