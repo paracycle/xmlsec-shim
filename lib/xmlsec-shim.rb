@@ -1,5 +1,6 @@
 require "xmlsec-shim/version"
 require 'pathname'
+require 'open3'
 
 module Xmlsec
   module Shim
@@ -11,13 +12,16 @@ module Xmlsec
     #   h
     # }    
 
-    def sign(doc_file, key_file)
-      binary_name = Bin.join("xmlsec1")
-      output = `#{binary_name} --sign --privkey-pem #{keyfile} #{doc_file}`
-      unless $?.success?
-        raise Exception   
+    class Bridge
+      def self.sign(doc_file, key_file)
+        binary_name = Bin.join("xmlsec1")
+        o, s = Open3.capture2("#{binary_name} --sign --privkey #{key_file} #{doc_file}")
+        output = o
+        unless s.success?
+          raise output   
+        end
+        output
       end
-      output
     end
   end
 end
